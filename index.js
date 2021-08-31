@@ -125,49 +125,6 @@ module.exports = {
 		'unicorn/prefer-ternary': 'off',
 		'@typescript-eslint/member-ordering': 'off',
 		'@typescript-eslint/no-empty-function': 'off',
-	},
-	ignorePatterns: [
-		'node_modules',
-		'.idea',
-		'dist',
-		'artifacts',
-		'scripts/bin',
-		'src/vendors',
-		'src/types/swagger.ts',
-		'src/nativeEditor/Overlay.tsx',
-		'src/support.js',
-		'selenium',
-	],
-	overrides: [
-		{
-			files: ['*.js'],
-			rules: {
-				'@typescript-eslint/no-implicit-any-catch': 'off',
-			},
-		},
-		{
-			files: [
-				'webpack.*.js',
-				'*.config.js',
-				'test-env.js',
-				'**/__mocks__/**',
-				'*.test.js',
-			],
-			env: {
-				node: true,
-				jest: true,
-			},
-			rules: {
-				'@typescript-eslint/no-require-imports': 'off',
-				'@typescript-eslint/no-var-requires': 'off',
-				'unicorn/prefer-module': 'off',
-
-				// The webpack/testing files only run on the CI server, so don't need to watch for these:
-				'security/detect-object-injection': 'off',
-				'security/detect-child-process': 'off',
-				'security/detect-unsafe-regex': 'off',
-			},
-		},
-	],
+	}
 };
 
