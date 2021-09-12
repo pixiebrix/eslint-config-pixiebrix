@@ -42,6 +42,14 @@ module.exports = {
 						group: ['lodash/*'],
 						message: 'You can import "lodash" instead of "lodash/*."',
 					},
+					{
+						group: ['react-bootstrap/*', '!react-bootstrap/types'],
+						message: 'You can import "react-bootstrap" instead of "react-bootstrap/*".'
+					},
+					{
+						group: ['../*'],
+						message: 'Use root-based imports (`import "@/something"`) instead of relative imports.'
+					}
 				],
 			},
 		],
