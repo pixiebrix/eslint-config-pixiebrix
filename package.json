@@ -28,9 +28,7 @@
 		"eslint-plugin-unicorn": "^35.0.0"
 	},
 	"devDependencies": {
-		"eslint": "^7.20.0",
-		"is-plain-obj": "^4.0.0",
-		"temp-write": "^5.0.0"
+		"eslint": "^7.20.0"
 	},
 	"peerDependencies": {
 		"eslint": ">=7.32.0"
