@@ -74,6 +74,7 @@ module.exports = {
 		],
 
 		// Customize some rules
+		"quotes": ["error", "double", { "avoidEscape": true }], // Matches Prettier, but also replaces backticks
 		"unicorn/prevent-abbreviations": [
 			"error",
 			{
