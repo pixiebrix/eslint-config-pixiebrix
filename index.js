@@ -74,14 +74,6 @@ module.exports = {
 		],
 
 		// Customize some rules
-		"import/no-unresolved": [
-			"error",
-			{
-				ignore: [
-					"json-schema", // @types-only package
-				],
-			},
-		],
 		"unicorn/prevent-abbreviations": [
 			"error",
 			{
@@ -119,6 +111,7 @@ module.exports = {
 		// It's fine because eqeqeq covers it. See https://github.com/pixiebrix/pixiebrix-extension/pull/887#pullrequestreview-711873690
 		"no-eq-null": "off",
 		"import/named": "off", // TypeScript does this natively
+		"import/no-unresolved": "off", // TypeScript does this natively
 		"react/prop-types": "off",
 		"unicorn/prefer-node-protocol": "off", // Not fully supported by TS
 		"unicorn/prefer-set-has": "off", // Not always worth the extra code
