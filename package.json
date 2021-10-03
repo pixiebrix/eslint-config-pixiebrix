@@ -5,7 +5,8 @@
 	"repository": "pixiebrix/eslint-config-pixiebrix",
 	"license": "MIT",
 	"files": [
-		"index.js"
+		"index.js",
+		"server.js"
 	],
 	"scripts": {
 		"test": "eslint .",

@@ -37,7 +37,7 @@ module.exports = {
 					{
 						group: ["*/__mocks__/*"],
 						message:
-							"Mocks should not be imported directly, they’re automatically picked up by tools.",
+							"Mocks should not be imported directly, they’re automatically picked up where needed.",
 					},
 					{
 						group: ["lodash/*"],
@@ -74,7 +74,7 @@ module.exports = {
 		],
 
 		// Customize some rules
-		"quotes": ["error", "double", { "avoidEscape": true }], // Matches Prettier, but also replaces backticks
+		quotes: ["error", "double", { avoidEscape: true }], // Matches Prettier, but also replaces backticks
 		"unicorn/prevent-abbreviations": [
 			"error",
 			{
@@ -118,6 +118,7 @@ module.exports = {
 		"unicorn/prefer-set-has": "off", // Not always worth the extra code
 		"unicorn/require-post-message-target-origin": "off", // Incompatible https://github.com/sindresorhus/eslint-plugin-unicorn/issues/1396
 		"no-warning-comments": "off", // Only useful if there aren't hundreds of other real warnings
+		"@typescript-eslint/no-implicit-any-catch": "off", // Already covered by tsconfig
 
 		// Too strict for now
 		"@typescript-eslint/no-unsafe-assignment": "off",
