@@ -75,6 +75,12 @@ const config = {
 
 		// Customize some rules
 		quotes: ["error", "double", { avoidEscape: true }], // Matches Prettier, but also replaces backticks
+		"unicorn/prefer-export-from": [
+			"error",
+			{
+				ignoreUsedVariables: true,
+			},
+		],
 		"unicorn/prevent-abbreviations": [
 			"error",
 			{
