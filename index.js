@@ -13,7 +13,7 @@ const config = {
 			version: "detect",
 		},
 	},
-	plugins: ["filenames", "jsx-a11y"],
+	plugins: ["filenames", "jsx-a11y", "import"],
 	extends: [
 		"xo", // Full config: https://github.com/xojs/eslint-config-xo/blob/main/index.js
 		"xo-typescript", // Full config: https://github.com/xojs/eslint-config-xo-typescript/blob/main/index.js
@@ -56,7 +56,6 @@ const config = {
 				],
 			},
 		],
-
 		"no-mixed-operators": [
 			"error",
 			{
@@ -72,6 +71,24 @@ const config = {
 				],
 			},
 		],
+
+		// Add some import rules
+		"import/no-absolute-path": "error",
+		"import/no-anonymous-default-export": "error",
+		"import/no-named-default": "error",
+		"import/no-webpack-loader-syntax": "error",
+		"import/no-self-import": "error",
+		"import/no-cycle": [
+			"warn",
+			{
+				ignoreExternal: true,
+			},
+		],
+		"import/no-useless-path-segments": "error",
+		"import/newline-after-import": "error",
+		"import/no-extraneous-dependencies": "error",
+		"import/no-named-as-default-member": "error",
+		"import/no-named-as-default": "error",
 
 		// Customize some rules
 		quotes: ["error", "double", { avoidEscape: true }], // Matches Prettier, but also replaces backticks
@@ -117,7 +134,6 @@ const config = {
 		// Disable recommended rules
 		// It's fine because eqeqeq covers it. See https://github.com/pixiebrix/pixiebrix-extension/pull/887#pullrequestreview-711873690
 		"no-eq-null": "off",
-		"import/named": "off", // TypeScript does this natively
 		"import/no-unresolved": "off", // TypeScript does this natively
 		"react/prop-types": "off",
 		"unicorn/prefer-node-protocol": "off", // Not fully supported by TS

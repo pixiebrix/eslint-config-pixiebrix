@@ -1,4 +1,5 @@
 module.exports = require("./index.js");
+
 module.exports.rules = {
 	...module.exports.rules,
 	// Allow CJS because not all tooling is ready

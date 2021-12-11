@@ -1,6 +1,7 @@
 // These are rules that apply this to repo, they're not exported. Ignore.
 
 const localConfig = require("./server.js");
+
 localConfig.rules = {
 	...localConfig.rules,
 	"filenames/match-exported": "off",
