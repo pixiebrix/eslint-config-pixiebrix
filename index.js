@@ -1,3 +1,15 @@
+const xoTypeScriptConfig = require("eslint-config-xo-typescript");
+
+function customize(config, rule, customizer) {
+	const [type, ruleConfig] = config.rules[rule];
+	// Spread shallow-clones the object
+	const newRuleConfig = { ...ruleConfig };
+	customizer(newRuleConfig);
+	return {
+		[rule]: [type, newRuleConfig],
+	};
+}
+
 const contexts = [
 	"background",
 	"contentScript",
@@ -128,6 +140,14 @@ const config = {
 
 		// Customize some rules
 		quotes: ["error", "double", { avoidEscape: true }], // Matches Prettier, but also replaces backticks
+
+		...customize(
+			xoTypeScriptConfig,
+			"@typescript-eslint/ban-types",
+			(config) => {
+				delete config.types.null;
+			}
+		),
 		"unicorn/prefer-export-from": [
 			"error",
 			{
