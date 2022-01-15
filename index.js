@@ -1,3 +1,25 @@
+const contexts = [
+	"background",
+	"contentScript",
+	"devTools",
+	"options",
+	"actionPanel",
+	"pageScript",
+];
+
+const restrictedZones = [];
+for (const exporter of contexts) {
+	for (const importer of contexts) {
+		if (exporter !== importer) {
+			restrictedZones.push({
+				target: `./src/${importer}/**/*`,
+				from: `./src/${exporter}`,
+				except: [`../${exporter}/messenger/api.ts`],
+			});
+		}
+	}
+}
+
 const config = {
 	env: {
 		browser: true,
@@ -29,6 +51,87 @@ const config = {
 	rules: {
 		// Enable extra rules
 		"filenames/match-exported": "error",
+
+		// Adapted from https://github.com/xojs/eslint-config-xo-typescript/blob/9ce1d346e743c1fc3bb4b1892f508824fa1557ed/index.js#L277
+		"@typescript-eslint/naming-convention": [
+			"error",
+			{
+				// Note: Leaving out `parameter` and `typeProperty` because of the mentioned known issues.
+				// Note: We are intentionally leaving out `enumMember` as it's usually pascal-case or upper-snake-case.
+				selector: [
+					"classProperty",
+					"parameterProperty",
+					"classMethod",
+					"typeMethod",
+					"accessor",
+				],
+				format: ["strictCamelCase"],
+				// We allow double underscope because of GraphQL type names and some React names.
+				leadingUnderscore: "allowSingleOrDouble",
+				trailingUnderscore: "allow",
+				// Ignore `{'Retry-After': retryAfter}` type properties.
+				filter: {
+					regex: "[- ]",
+					match: false,
+				},
+			},
+			{
+				selector: "typeLike",
+				format: ["StrictPascalCase"],
+			},
+			{
+				selector: "variable",
+				types: ["boolean"],
+				format: ["StrictPascalCase"],
+				prefix: ["is", "has", "can", "should", "will", "did"],
+			},
+			{
+				// Interface name should not be prefixed with `I`.
+				selector: "interface",
+				filter: /^(?!I)[A-Z]/.source,
+				format: ["StrictPascalCase"],
+			},
+			{
+				// Type parameter name should either be `T` or a descriptive name.
+				selector: "typeParameter",
+				filter: /^T$|^[A-Z][A-Za-z]+$/.source,
+				format: ["StrictPascalCase"],
+			},
+			// Allow these in non-camel-case when quoted.
+			{
+				selector: ["classProperty", "objectLiteralProperty"],
+				format: null,
+				modifiers: ["requiresQuotes"],
+			},
+
+			{
+				selector: "variable",
+				types: ["boolean", "string", "number"],
+				format: ["camelCase", "UPPER_CASE"],
+			},
+			{
+				selector: ["function"],
+				format: ["camelCase", "PascalCase"],
+			},
+			{
+				selector: ["objectLiteralProperty", "objectLiteralMethod"],
+				format: ["camelCase", "PascalCase", "snake_case"],
+			},
+		],
+
+		"import/dynamic-import-chunkname": [
+			"error",
+			{
+				webpackChunknameFormat: "[a-zA-Z0-57-9-/_\\[\\].]+",
+			},
+		],
+		"import/no-restricted-paths": [
+			"warn",
+			{
+				zones: restrictedZones,
+			},
+		],
+
 		"no-restricted-imports": [
 			"error",
 			{
@@ -152,19 +255,10 @@ const config = {
 		// Smart allows for != null. See: https://github.com/pixiebrix/pixiebrix-extension/pull/887#pullrequestreview-711873690
 		eqeqeq: ["error", "smart"],
 
-		"@typescript-eslint/naming-convention": [
-			"error",
-			{
-				selector: "variable",
-				modifiers: ["const", "exported"],
-				types: ["boolean", "string", "number"],
-				format: ["UPPER_CASE"],
-			},
-		],
-
 		// Disable recommended rules
 		// It's fine because eqeqeq covers it. See https://github.com/pixiebrix/pixiebrix-extension/pull/887#pullrequestreview-711873690
 		"no-eq-null": "off",
+		"unicorn/no-nested-ternary": "off", // Sometimes it conflicts with Prettier
 		"import/no-unresolved": "off", // TypeScript does this natively
 		"react/prop-types": "off",
 		"unicorn/prefer-node-protocol": "off", // Not fully supported by TS
