@@ -89,7 +89,11 @@ const config = {
 					},
 					{
 						group: ["lodash/*"],
-						message: 'You can import "lodash" instead of "lodash/*."',
+						message: 'You can import "lodash" instead of "lodash/*".',
+					},
+					{
+						group: ["react-spinners"],
+						message: 'You can import the specific "react-spinners/loader" instead of just "react-spinners".',
 					},
 					{
 						group: ["react-bootstrap/*", "!react-bootstrap/types"],
