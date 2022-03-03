@@ -1,182 +1,35 @@
 "use strict";
 
+// Vendored from https://github.com/xojs/xo/blob/7da6311abcd069bea561a9be0f9b7aa220784a34/config/plugins.cjs
+// Changes:
+// - Drop eslint-config-xo repetitions
+// - Drop AVA
+// - Restore promise plugin
+// - Drop non-rule / non-plugin settings
+
 module.exports = {
-	// Repeated here from eslint-config-xo in case some plugins set something different
-	parserOptions: {
-		ecmaVersion: "latest",
-		sourceType: "module",
-		ecmaFeatures: {
-			jsx: true,
-		},
-	},
-	// -- End repeat
 	plugins: [
 		"no-use-extend-native",
-		"ava",
 		"unicorn",
-		// Disabled as the plugin doesn't support ESLint 8 yet.
-		// 'promise',
+		"promise",
 		"import",
 		"node",
 		"eslint-comments",
 	],
-	extends: ["plugin:ava/recommended", "plugin:unicorn/recommended"],
-	settings: {
-		"import/core-modules": ["electron", "atom"],
-	},
 	rules: {
 		"no-use-extend-native/no-use-extend-native": "error",
 
-		// TODO: Remove this override at some point.
-		// It's just here to ease users into readable variable names.
-		"unicorn/prevent-abbreviations": [
+		"promise/param-names": "error",
+		"promise/no-return-wrap": [
 			"error",
 			{
-				checkFilenames: false,
-				checkDefaultAndNamespaceImports: false,
-				checkShorthandImports: false,
-				extendDefaultReplacements: false,
-				replacements: {
-					// https://thenextweb.com/dd/2020/07/13/linux-kernel-will-no-longer-use-terms-blacklist-and-slave/
-					whitelist: {
-						include: true,
-					},
-					blacklist: {
-						exclude: true,
-					},
-					master: {
-						main: true,
-					},
-					slave: {
-						secondary: true,
-					},
-
-					// Not part of `eslint-plugin-unicorn`
-					application: {
-						app: true,
-					},
-					applications: {
-						apps: true,
-					},
-
-					// Part of `eslint-plugin-unicorn`
-					arr: {
-						array: true,
-					},
-					e: {
-						error: true,
-						event: true,
-					},
-					el: {
-						element: true,
-					},
-					elem: {
-						element: true,
-					},
-					len: {
-						length: true,
-					},
-					msg: {
-						message: true,
-					},
-					num: {
-						number: true,
-					},
-					obj: {
-						object: true,
-					},
-					opts: {
-						options: true,
-					},
-					param: {
-						parameter: true,
-					},
-					params: {
-						parameters: true,
-					},
-					prev: {
-						previous: true,
-					},
-					req: {
-						request: true,
-					},
-					res: {
-						response: true,
-						result: true,
-					},
-					ret: {
-						returnValue: true,
-					},
-					str: {
-						string: true,
-					},
-					temp: {
-						temporary: true,
-					},
-					tmp: {
-						temporary: true,
-					},
-					val: {
-						value: true,
-					},
-					err: {
-						error: true,
-					},
-				},
+				allowReject: true,
 			},
 		],
-
-		// TODO: Restore when it becomes safer: https://github.com/sindresorhus/eslint-plugin-unicorn/issues/681
-		// 'unicorn/string-content': [
-		// 	'error',
-		// 	{
-		// 		patterns: {
-		// 			'': '’',
-		// 			[/\.\.\./.source]: '…',
-		// 			'->': '→',
-		// 			[/^http:\/\//.source]: 'http://'
-		// 		}
-		// 	}
-		// ],
-
-		// The character class sorting is a bit buggy at the moment.
-		"unicorn/better-regex": [
-			"error",
-			{
-				sortCharacterClasses: false,
-			},
-		],
-
-		// TODO: Disabled for now until it becomes more stable: https://github.com/sindresorhus/eslint-plugin-unicorn/search?q=consistent-destructuring+is:issue&state=open&type=issues
-		"unicorn/consistent-destructuring": "off",
-
-		// TODO: Disabled for now as I don't have time to deal with the backslash that might come from this. Try to enable this rule in 2021.
-		"unicorn/no-null": "off",
-
-		// We only enforce it for single-line statements to not be too opinionated.
-		"unicorn/prefer-ternary": ["error", "only-single-line"],
-
-		// TODO: Remove this override when the rule is more stable.
-		"unicorn/consistent-function-scoping": "off",
-
-		// TODO: Temporarily disabled until it becomes more mature.
-		"unicorn/no-useless-undefined": "off",
-
-		// TODO: Temporarily disabled as the rule is buggy.
-		"function-call-argument-newline": "off",
-
-		// Disabled as the plugin doesn't support ESLint 8 yet.
-		// 'promise/param-names': 'error',
-		// 'promise/no-return-wrap': [
-		// 	'error',
-		// 	{
-		// 		allowReject: true,
-		// 	},
-		// ],
-		// 'promise/no-new-statics': 'error',
-		// 'promise/no-return-in-finally': 'error',
-		// 'promise/valid-params': 'error',
-		// 'promise/prefer-await-to-then': 'error',
+		"promise/no-new-statics": "error",
+		"promise/no-return-in-finally": "error",
+		"promise/valid-params": "error",
+		"promise/prefer-await-to-then": "error",
 
 		"import/default": "error",
 		"import/export": "error",
