@@ -1,3 +1,5 @@
+"use strict";
+
 const xoTypeScriptConfig = require("eslint-config-xo-typescript");
 
 function customize(config, rule, customizer) {
@@ -47,15 +49,14 @@ const config = {
 			version: "detect",
 		},
 	},
-	plugins: ["filenames", "jsx-a11y", "import"],
+	plugins: ["filenames", "jsx-a11y"],
 	extends: [
+		"./xoPluginsConfig.js",
 		"xo", // Full config: https://github.com/xojs/eslint-config-xo/blob/main/index.js
 		"xo-typescript", // Full config: https://github.com/xojs/eslint-config-xo-typescript/blob/main/index.js
 		"prettier", // Disable style-related rules
 		"plugin:react/recommended",
 		"plugin:react-hooks/recommended",
-		"plugin:import/recommended",
-		"plugin:import/typescript",
 		"plugin:security/recommended",
 		"plugin:unicorn/recommended",
 		"plugin:jsx-a11y/recommended",
@@ -93,7 +94,8 @@ const config = {
 					},
 					{
 						group: ["react-spinners"],
-						message: 'You can import the specific "react-spinners/loader" instead of just "react-spinners".',
+						message:
+							'You can import the specific "react-spinners/loader" instead of just "react-spinners".',
 					},
 					{
 						group: ["react-bootstrap/*", "!react-bootstrap/types"],
@@ -123,24 +125,6 @@ const config = {
 				],
 			},
 		],
-
-		// Add some import rules
-		"import/no-absolute-path": "error",
-		"import/no-anonymous-default-export": "error",
-		"import/no-named-default": "error",
-		"import/no-webpack-loader-syntax": "error",
-		"import/no-self-import": "error",
-		"import/no-cycle": [
-			"warn",
-			{
-				ignoreExternal: true,
-			},
-		],
-		"import/no-useless-path-segments": "error",
-		"import/newline-after-import": "error",
-		"import/no-extraneous-dependencies": "error",
-		"import/no-named-as-default-member": "error",
-		"import/no-named-as-default": "error",
 
 		// Customize some rules
 		quotes: ["error", "double", { avoidEscape: true }], // Matches Prettier, but also replaces backticks
@@ -223,6 +207,10 @@ const config = {
 		"unicorn/require-post-message-target-origin": "off", // Incompatible https://github.com/sindresorhus/eslint-plugin-unicorn/issues/1396
 		"no-warning-comments": "off", // Only useful if there aren't hundreds of other real warnings
 		"@typescript-eslint/no-implicit-any-catch": "off", // Already covered by tsconfig
+		"import/no-cycle": "off", // Unreasonably slow (90 sec lint -> 5 minutes) https://github.com/pixiebrix/pixiebrix-extension/issues/1080
+		"import/no-mutable-exports": "off", // They're fine
+		"node/prefer-global/process": "off", // `process.env` is required by webpack
+		"eslint-comments/no-unused-disable": "off", // Seems buggy with "next-line"
 
 		// Too strict for now
 		"@typescript-eslint/no-unsafe-assignment": "off",
@@ -235,6 +223,7 @@ const config = {
 		"unicorn/prefer-ternary": "off",
 		"@typescript-eslint/member-ordering": "off",
 		"@typescript-eslint/no-empty-function": "off",
+		"@typescript-eslint/naming-convention": "off", // https://github.com/pixiebrix/eslint-config-pixiebrix/issues/5
 	},
 	overrides: [], // Used below
 };
