@@ -92,7 +92,7 @@ const config = {
 						message: 'You can import "lodash" instead of "lodash/*".',
 					},
 					{
-						group: ["react-spinners"],
+						group: ["react-spinners$"],
 						message:
 							'You can import the specific "react-spinners/loader" instead of just "react-spinners".',
 					},
@@ -106,6 +106,18 @@ const config = {
 						message:
 							'Use root-based imports (`import "@/something"`) instead of relative imports.',
 					},
+				],
+			},
+		],
+		// Avoid imports with side effects
+		"import/no-unassigned-import": [
+			"error",
+			{
+				allow: [
+					"**/*.css",
+					"**/*.scss",
+					"**/reportUncaughtErrors",
+					"regenerator-runtime/runtime", // Automatic registration
 				],
 			},
 		],
@@ -199,7 +211,6 @@ const config = {
 		// It's fine because eqeqeq covers it. See https://github.com/pixiebrix/pixiebrix-extension/pull/887#pullrequestreview-711873690
 		"no-eq-null": "off",
 		"unicorn/no-nested-ternary": "off", // Sometimes it conflicts with Prettier
-		"import/no-unresolved": "off", // TypeScript does this natively
 		"react/prop-types": "off",
 		"unicorn/prefer-node-protocol": "off", // Not fully supported by TS
 		"unicorn/prefer-set-has": "off", // Not always worth the extra code
@@ -207,8 +218,6 @@ const config = {
 		"no-warning-comments": "off", // Only useful if there aren't hundreds of other real warnings
 		"@typescript-eslint/no-implicit-any-catch": "off", // Already covered by tsconfig
 		"import/no-cycle": "off", // Unreasonably slow (90 sec lint -> 5 minutes) https://github.com/pixiebrix/pixiebrix-extension/issues/1080
-		"import/no-mutable-exports": "off", // They're fine
-		"node/prefer-global/process": "off", // `process.env` is required by webpack
 		"eslint-comments/no-unused-disable": "off", // Seems buggy with "next-line"
 
 		// TODO: The rule is currently broken, it should accept `throw unknown` but doesn't
@@ -226,6 +235,14 @@ const config = {
 		"@typescript-eslint/member-ordering": "off",
 		"@typescript-eslint/no-empty-function": "off",
 		"@typescript-eslint/naming-convention": "off", // https://github.com/pixiebrix/eslint-config-pixiebrix/issues/5
+		"import/first": "off",
+		"import/named": "off",
+		"import/order": "off",
+		"import/extensions": "off",
+		"import/no-mutable-exports": "off",
+		"node/file-extension-in-import": "off",
+		"node/prefer-global/process": "off", // `process.env` is required by webpack
+		"node/prefer-global/buffer": "off",
 	},
 	overrides: [
 		{
