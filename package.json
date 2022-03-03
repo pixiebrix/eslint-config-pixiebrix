@@ -6,7 +6,8 @@
 	"license": "MIT",
 	"files": [
 		"index.js",
-		"server.js"
+		"server.js",
+		"xoPluginsConfig.js"
 	],
 	"scripts": {
 		"test": "eslint .",

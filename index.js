@@ -49,6 +49,7 @@ const config = {
 			version: "detect",
 		},
 	},
+	ignorePatterns: [".idea", "dist", "**/__mocks__/**"],
 	plugins: ["filenames", "jsx-a11y"],
 	extends: [
 		"./xoPluginsConfig.js",
@@ -62,9 +63,7 @@ const config = {
 		"plugin:jsx-a11y/recommended",
 	],
 	rules: {
-		// Enable extra rules
-		"filenames/match-exported": "error",
-
+		// Enable extra rules]
 		"import/dynamic-import-chunkname": [
 			"error",
 			{
@@ -212,6 +211,9 @@ const config = {
 		"node/prefer-global/process": "off", // `process.env` is required by webpack
 		"eslint-comments/no-unused-disable": "off", // Seems buggy with "next-line"
 
+		// TODO: The rule is currently broken, it should accept `throw unknown` but doesn't
+		"@typescript-eslint/no-throw-literal": "off",
+
 		// Too strict for now
 		"@typescript-eslint/no-unsafe-assignment": "off",
 		"@typescript-eslint/no-unsafe-member-access": "off",
@@ -225,7 +227,22 @@ const config = {
 		"@typescript-eslint/no-empty-function": "off",
 		"@typescript-eslint/naming-convention": "off", // https://github.com/pixiebrix/eslint-config-pixiebrix/issues/5
 	},
-	overrides: [], // Used below
+	overrides: [
+		{
+			files: ["**/*.tsx", "**/use*.ts"],
+			excludedFiles: ["*.test.tsx", "*.stories.tsx"],
+			rules: {
+				"filenames/match-exported": "error",
+			},
+		},
+		{
+			files: ["*.stories.tsx"],
+			rules: {
+				"unicorn/filename-case": "off",
+				"import/no-anonymous-default-export": "off",
+			},
+		},
+	],
 };
 
 config.overrides.push({
