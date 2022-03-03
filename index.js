@@ -51,7 +51,7 @@ const config = {
 	},
 	plugins: ["filenames", "jsx-a11y"],
 	extends: [
-		"./xo-plugins-config.js",
+		"./xoPluginsConfig.js",
 		"xo", // Full config: https://github.com/xojs/eslint-config-xo/blob/main/index.js
 		"xo-typescript", // Full config: https://github.com/xojs/eslint-config-xo-typescript/blob/main/index.js
 		"prettier", // Disable style-related rules
@@ -209,6 +209,8 @@ const config = {
 		"@typescript-eslint/no-implicit-any-catch": "off", // Already covered by tsconfig
 		"import/no-cycle": "off", // Unreasonably slow (90 sec lint -> 5 minutes) https://github.com/pixiebrix/pixiebrix-extension/issues/1080
 		"import/no-mutable-exports": "off", // They're fine
+		"node/prefer-global/process": "off", // `process.env` is required by webpack
+		"eslint-comments/no-unused-disable": "off", // Seems buggy with "next-line"
 
 		// Too strict for now
 		"@typescript-eslint/no-unsafe-assignment": "off",
