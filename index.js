@@ -12,28 +12,6 @@ function customize(config, rule, customizer) {
 	};
 }
 
-const contexts = [
-	"background",
-	"contentScript",
-	"devTools",
-	"options",
-	"actionPanel",
-	"pageScript",
-];
-
-const restrictedZones = [];
-for (const exporter of contexts) {
-	for (const importer of contexts) {
-		if (exporter !== importer) {
-			restrictedZones.push({
-				target: `./src/${importer}/**/*`,
-				from: `./src/${exporter}`,
-				except: [`../${exporter}/messenger/api.ts`],
-			});
-		}
-	}
-}
-
 const config = {
 	env: {
 		browser: true,
@@ -63,17 +41,11 @@ const config = {
 		"plugin:jsx-a11y/recommended",
 	],
 	rules: {
-		// Enable extra rules]
+		// Enable extra rules
 		"import/dynamic-import-chunkname": [
 			"error",
 			{
 				webpackChunknameFormat: "[a-zA-Z0-57-9-/_\\[\\].]+",
-			},
-		],
-		"import/no-restricted-paths": [
-			"warn",
-			{
-				zones: restrictedZones,
 			},
 		],
 
@@ -210,15 +182,20 @@ const config = {
 		// Disable recommended rules
 		// It's fine because eqeqeq covers it. See https://github.com/pixiebrix/pixiebrix-extension/pull/887#pullrequestreview-711873690
 		"no-eq-null": "off",
-		"unicorn/no-nested-ternary": "off", // Sometimes it conflicts with Prettier
 		"react/prop-types": "off",
+		"no-warning-comments": "off", // Only useful if there aren't hundreds of other real warnings
+		"eslint-comments/no-unused-disable": "off", // Seems buggy with "next-line"
+		"security/detect-non-literal-fs-filename": "off", // 100% false positives, we never use the `fs` module
+		"unicorn/no-nested-ternary": "off", // Sometimes it conflicts with Prettier
 		"unicorn/prefer-node-protocol": "off", // Not fully supported by TS
 		"unicorn/prefer-set-has": "off", // Not always worth the extra code
 		"unicorn/require-post-message-target-origin": "off", // Incompatible https://github.com/sindresorhus/eslint-plugin-unicorn/issues/1396
-		"no-warning-comments": "off", // Only useful if there aren't hundreds of other real warnings
-		"@typescript-eslint/no-implicit-any-catch": "off", // Already covered by tsconfig
 		"import/no-cycle": "off", // Unreasonably slow (90 sec lint -> 5 minutes) https://github.com/pixiebrix/pixiebrix-extension/issues/1080
-		"eslint-comments/no-unused-disable": "off", // Seems buggy with "next-line"
+		"import/no-extraneous-dependencies": "off", // Not worth it
+		
+		// Rules that duplicate TypeScript features
+		"import/default": "off",
+		"@typescript-eslint/no-implicit-any-catch": "off",
 
 		// TODO: The rule is currently broken, it should accept `throw unknown` but doesn't
 		"@typescript-eslint/no-throw-literal": "off",
