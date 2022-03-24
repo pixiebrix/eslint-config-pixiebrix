@@ -195,6 +195,7 @@ const config = {
 		
 		// Rules that duplicate TypeScript features
 		"import/default": "off",
+ 		"import/no-duplicates": "off", // Until https://github.com/xojs/eslint-config-xo-typescript/pull/55
 		"@typescript-eslint/no-implicit-any-catch": "off",
 
 		// TODO: The rule is currently broken, it should accept `throw unknown` but doesn't
