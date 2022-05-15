@@ -7,5 +7,6 @@ localConfig.rules = {
 	"filenames/match-exported": "off",
 };
 localConfig.settings.react.version = "16.13"; // Irrelevant for this repo
+localConfig.settings.jest = { version: "26" }; // Irrelevant for this repo
 
 module.exports = localConfig;

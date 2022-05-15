@@ -217,7 +217,6 @@ const config = {
 		"unicorn/prefer-ternary": "off",
 		"@typescript-eslint/member-ordering": "off",
 		"@typescript-eslint/no-empty-function": "off",
-		"@typescript-eslint/naming-convention": "off", // https://github.com/pixiebrix/eslint-config-pixiebrix/issues/5
 
 		"import/first": "off",
 		"import/named": "off",
