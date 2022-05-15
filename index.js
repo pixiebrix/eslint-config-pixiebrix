@@ -196,6 +196,7 @@ const config = {
 		// Rules that duplicate TypeScript features
 		"import/default": "off",
 		"import/no-duplicates": "off", // Until https://github.com/xojs/eslint-config-xo-typescript/pull/55
+		"import/no-named-as-default-member": "off", // It's common to use `React.memo` instead of just `memo`; The errors this prevents are already caught by TS
 		"@typescript-eslint/no-implicit-any-catch": "off",
 		"@typescript-eslint/consistent-type-assertions": "off", // Our current typing has too many `unknowns` for this to be applicable https://github.com/typescript-eslint/typescript-eslint/issues/4462
 
