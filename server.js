@@ -1,5 +1,6 @@
 module.exports = require("./index.js");
 
+module.exports.extends.push("plugin:jest/recommended");
 module.exports.rules = {
 	...module.exports.rules,
 	// Allow CJS because not all tooling is ready
@@ -11,4 +12,7 @@ module.exports.rules = {
 	"security/detect-object-injection": "off",
 	"security/detect-child-process": "off",
 	"security/detect-unsafe-regex": "off",
+
+	"jest/no-conditional-expect": "off",
+	"unicorn/consistent-function-scoping": "off",
 };

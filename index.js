@@ -192,14 +192,18 @@ const config = {
 		"unicorn/require-post-message-target-origin": "off", // Incompatible https://github.com/sindresorhus/eslint-plugin-unicorn/issues/1396
 		"import/no-cycle": "off", // Unreasonably slow (90 sec lint -> 5 minutes) https://github.com/pixiebrix/pixiebrix-extension/issues/1080
 		"import/no-extraneous-dependencies": "off", // Not worth it
-		
+
 		// Rules that duplicate TypeScript features
 		"import/default": "off",
- 		"import/no-duplicates": "off", // Until https://github.com/xojs/eslint-config-xo-typescript/pull/55
+		"import/no-duplicates": "off", // Until https://github.com/xojs/eslint-config-xo-typescript/pull/55
 		"@typescript-eslint/no-implicit-any-catch": "off",
+		"@typescript-eslint/consistent-type-assertions": "off", // Our current typing has too many `unknowns` for this to be applicable https://github.com/typescript-eslint/typescript-eslint/issues/4462
 
 		// TODO: The rule is currently broken, it should accept `throw unknown` but doesn't
 		"@typescript-eslint/no-throw-literal": "off",
+
+		// Disable rule until we find a better config https://github.com/pixiebrix/eslint-config-pixiebrix/issues/5
+		"@typescript-eslint/naming-convention": "off",
 
 		// Too strict for now
 		"@typescript-eslint/no-unsafe-assignment": "off",
@@ -213,6 +217,7 @@ const config = {
 		"@typescript-eslint/member-ordering": "off",
 		"@typescript-eslint/no-empty-function": "off",
 		"@typescript-eslint/naming-convention": "off", // https://github.com/pixiebrix/eslint-config-pixiebrix/issues/5
+
 		"import/first": "off",
 		"import/named": "off",
 		"import/order": "off",
