@@ -1,8 +1,8 @@
-module.exports = require("./index.js");
+module.exports.extends = [
+	"plugin:jest/recommended"
+];
 
-module.exports.extends.push("plugin:jest/recommended");
 module.exports.rules = {
-	...module.exports.rules,
 	// Allow CJS because not all tooling is ready
 	"@typescript-eslint/no-require-imports": "off",
 	"@typescript-eslint/no-var-requires": "off",

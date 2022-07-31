@@ -1,12 +1,13 @@
 // These are rules that apply this to repo, they're not exported. Ignore.
-
-const localConfig = require("./server.js");
-
-localConfig.rules = {
-	...localConfig.rules,
-	"filenames/match-exported": "off",
+module.exports = {
+	extends: ["./index.js", "./server.js"],
+	rules: {
+		"filenames/match-exported": "off",
+	},
+	settings: {
+		react: {
+			version: "16.13", // Irrelevant for this repo
+		},
+		jest: { version: "26" }, // Irrelevant for this repo
+	},
 };
-localConfig.settings.react.version = "16.13"; // Irrelevant for this repo
-localConfig.settings.jest = { version: "26" }; // Irrelevant for this repo
-
-module.exports = localConfig;
