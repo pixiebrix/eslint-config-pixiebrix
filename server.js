@@ -15,4 +15,10 @@ module.exports.rules = {
 
 	"jest/no-conditional-expect": "off",
 	"unicorn/consistent-function-scoping": "off",
+
+	// Common and required usage in tests
+	"unicorn/no-useless-undefined": "off",
+
+	// It's a Webpack optimization, not necessary here
+	"import/dynamic-import-chunkname": "off",
 };
