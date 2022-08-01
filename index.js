@@ -42,6 +42,7 @@ const config = {
 	],
 	rules: {
 		// Enable extra rules
+		"unicorn/prefer-at": "error", // Until May 2023 https://github.com/sindresorhus/eslint-plugin-unicorn/blob/20e959ffadeca007697534f1ad58c45d29cfdb04/configs/recommended.js#L72
 		"import/dynamic-import-chunkname": [
 			"error",
 			{
