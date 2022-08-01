@@ -65,9 +65,9 @@ const config = {
 						message: 'You can import "lodash" instead of "lodash/*".',
 					},
 					{
-						group: ["react-spinners$"],
+						group: ["react-spinners"],
 						message:
-							'You can import the specific "react-spinners/loader" instead of just "react-spinners".',
+							"Use the local <Loader/> component instead, it's already centered.",
 					},
 					{
 						group: ["react-bootstrap/*", "!react-bootstrap/types"],
