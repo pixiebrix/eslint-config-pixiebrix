@@ -196,6 +196,7 @@ const config = {
 		"import/no-extraneous-dependencies": "off", // Not worth it
 		"@typescript-eslint/triple-slash-reference": "off", // No alternative sometimes
 		"@typescript-eslint/consistent-type-definitions": "off", // `type` cannot be used to extend globals
+		"@typescript-eslint/no-dynamic-delete": "off", // Already covered by `security/detect-object-injection`
 
 		// Rules that duplicate TypeScript features
 		"import/default": "off",
