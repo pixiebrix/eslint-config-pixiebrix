@@ -144,6 +144,15 @@ const config = {
 					evt: false,
 					ext: false,
 					exts: false,
+					$el: {
+						$elements: true,
+					},
+					$elt: {
+						$elements: true,
+					},
+					$element: {
+						$elements: true,
+					},
 					fn: false,
 					func: {
 						fn: true,
