@@ -284,7 +284,6 @@ config.overrides.push({
 if (process.env.ESLINT_NO_IMPORTS) {
 	for (const key of Object.keys(config.rules)) {
 		if (key.startsWith("import/")) {
-			// eslint-disable-next-line @typescript-eslint/no-dynamic-delete
 			delete config.rules[key];
 		}
 	}
