@@ -226,6 +226,7 @@ const config = {
 		"@typescript-eslint/no-unsafe-member-access": "off",
 		"@typescript-eslint/no-unsafe-return": "off",
 		"@typescript-eslint/no-unsafe-call": "off",
+		"@typescript-eslint/prefer-nullish-coalescing": "off", // Requires strictNullChecks
 
 		// Maybe later, opinionated
 		"unicorn/no-null": "off",
