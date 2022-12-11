@@ -42,7 +42,6 @@ const config = {
 	],
 	rules: {
 		// Enable extra rules
-		"unicorn/prefer-at": "error", // Until May 2023 https://github.com/sindresorhus/eslint-plugin-unicorn/blob/20e959ffadeca007697534f1ad58c45d29cfdb04/configs/recommended.js#L72
 		"import/dynamic-import-chunkname": [
 			"error",
 			{
@@ -109,6 +108,11 @@ const config = {
 				],
 			},
 		],
+
+		// Modern JS rules, will be enabled upstream in May 2023
+		// https://github.com/sindresorhus/eslint-plugin-unicorn/blob/20e959ffadeca007697534f1ad58c45d29cfdb04/configs/recommended.js#L72
+		"unicorn/prefer-at": "error",
+		"unicorn/prefer-string-replace-all": "error",
 
 		// Customize some rules
 		quotes: ["error", "double", { avoidEscape: true }], // Matches Prettier, but also replaces backticks
@@ -190,16 +194,14 @@ const config = {
 		eqeqeq: ["error", "smart"],
 
 		// Disable recommended rules
-		// It's fine because eqeqeq covers it. See https://github.com/pixiebrix/pixiebrix-extension/pull/887#pullrequestreview-711873690
-		"no-eq-null": "off",
-		"react/prop-types": "off",
+		"no-eq-null": "off", // `eqeqeq` covers it: https://github.com/pixiebrix/pixiebrix-extension/pull/887#pullrequestreview-711873690
+		"unicorn/no-null": "off", // We don't do that here
+		"react/prop-types": "off", // We don't do that here
 		"no-warning-comments": "off", // Only useful if there aren't hundreds of other real warnings
 		"eslint-comments/no-unused-disable": "off", // Seems buggy with "next-line"
 		"security/detect-non-literal-fs-filename": "off", // 100% false positives, we never use the `fs` module
 		"unicorn/no-nested-ternary": "off", // Sometimes it conflicts with Prettier
-		"unicorn/prefer-node-protocol": "off", // Not fully supported by TS
 		"unicorn/prefer-set-has": "off", // Not always worth the extra code
-		"unicorn/require-post-message-target-origin": "off", // Incompatible https://github.com/sindresorhus/eslint-plugin-unicorn/issues/1396
 		"unicorn/prefer-top-level-await": "off", // No advantage in browsers
 		"import/no-cycle": "off", // Unreasonably slow (90 sec lint -> 5 minutes) https://github.com/pixiebrix/pixiebrix-extension/issues/1080
 		"import/no-extraneous-dependencies": "off", // Not worth it
@@ -209,10 +211,9 @@ const config = {
 
 		// Rules that duplicate TypeScript features
 		"import/default": "off",
-		"import/no-duplicates": "off", // Until https://github.com/xojs/eslint-config-xo-typescript/pull/55
-		"import/no-named-as-default": "off", // Too slow; The errors this prevents are already caught by TS
-		"import/no-named-as-default-member": "off", // It's common to use `React.memo` instead of just `memo`; The errors this prevents are already caught by TS
-		"@typescript-eslint/no-implicit-any-catch": "off",
+		"import/named": "off",
+		"import/no-named-as-default": "off", // Too slow
+		"import/no-named-as-default-member": "off", // It's common to use `React.memo` instead of just `memo`
 		"@typescript-eslint/consistent-type-assertions": "off", // Our current typing has too many `unknowns` for this to be applicable https://github.com/typescript-eslint/typescript-eslint/issues/4462
 
 		// TODO: The rule is currently broken, it should accept `throw unknown` but doesn't
@@ -229,13 +230,10 @@ const config = {
 		"@typescript-eslint/prefer-nullish-coalescing": "off", // Requires strictNullChecks
 
 		// Maybe later, opinionated
-		"unicorn/no-null": "off",
 		"unicorn/prefer-ternary": "off",
 		"@typescript-eslint/member-ordering": "off",
 		"@typescript-eslint/no-empty-function": "off",
 
-		"import/first": "off",
-		"import/named": "off",
 		"import/order": "off",
 		"import/extensions": "off",
 		"import/no-mutable-exports": "off",
