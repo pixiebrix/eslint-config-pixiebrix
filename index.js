@@ -253,6 +253,7 @@ const config = {
 			files: ["*.stories.tsx"],
 			rules: {
 				"unicorn/filename-case": "off",
+				"unicorn/no-useless-spread": "off", // Clashes with getDefaultMiddleware().concat
 				"import/no-anonymous-default-export": "off",
 			},
 		},
