@@ -78,6 +78,16 @@ const config = {
 						message:
 							'Use root-based imports (`import "@/something"`) instead of relative imports.',
 					},
+					{
+						group: ["formik"],
+						importNames: ["Form", "Formik"],
+						message: "Import @/components/form/Form instead",
+					},
+					{
+						group: ["react-bootstrap"],
+						importNames: ["Form"],
+						message: "Import @/components/form/Form instead",
+					},
 				],
 			},
 		],
