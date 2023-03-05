@@ -27,7 +27,7 @@ jobs:
           node-version: 14.x
           registry-url: "https://registry.npmjs.org"
       - run: npm ci || npm install
-      - uses: fregante/setup-git-user@v1
+      - uses: fregante/setup-git-user@v2
       - run: npm version ${{ github.event.inputs.Version }}
       - run: npm publish
         env:
