@@ -3,11 +3,19 @@
 
 version: 2
 updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: sunday
+    open-pull-requests-limit: 20
+    assignees:
+      - johnnymetz
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
       day: sunday
-      time: "08:42"
-      timezone: Etc/UTC
     open-pull-requests-limit: 20
+    assignees:
+      - johnnymetz
