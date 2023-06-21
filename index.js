@@ -251,9 +251,17 @@ const config = {
 		"node/prefer-global/process": "off", // `process.env` is required by webpack
 		"node/prefer-global/buffer": "off",
 
+		// Disabling base rule to use the typescript extension
+		"no-use-before-define": "off",
 		// Disabling functions -- functions are hoisted and not a risk
 		// https://eslint.org/docs/latest/rules/no-use-before-define#options
-		"no-use-before-define": ["error", { functions: false }],
+		"@typescript-eslint/no-use-before-define": [
+			"error",
+			{
+				functions: false,
+				ignoreTypeReferences: false,
+			},
+		],
 	},
 	overrides: [
 		{
