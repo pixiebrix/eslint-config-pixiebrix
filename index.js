@@ -251,7 +251,9 @@ const config = {
 		"node/prefer-global/process": "off", // `process.env` is required by webpack
 		"node/prefer-global/buffer": "off",
 
-		"no-use-before-define": "error",
+		// Disabling functions -- functions are hoisted and not a risk
+		// https://eslint.org/docs/latest/rules/no-use-before-define#options
+		"no-use-before-define": ["error", { functions: false }],
 	},
 	overrides: [
 		{
