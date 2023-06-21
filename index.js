@@ -250,6 +250,8 @@ const config = {
 		"node/file-extension-in-import": "off",
 		"node/prefer-global/process": "off", // `process.env` is required by webpack
 		"node/prefer-global/buffer": "off",
+
+		"no-use-before-define": "error",
 	},
 	overrides: [
 		{
