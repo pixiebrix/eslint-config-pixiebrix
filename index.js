@@ -174,6 +174,7 @@ const config = {
 					},
 					i: false,
 					j: false,
+					mod: false,
 					num: false,
 					obj: false,
 					param: false,
