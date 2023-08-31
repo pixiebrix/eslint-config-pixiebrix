@@ -28,7 +28,7 @@ const config = {
 		},
 	},
 	ignorePatterns: [".idea", "dist", "**/__mocks__/**"],
-	plugins: ["filenames", "jsx-a11y", "jest", "testing-library"],
+	plugins: ["filenames", "jsx-a11y"],
 	extends: [
 		"./xoPluginsConfig.js",
 		"xo", // Full config: https://github.com/xojs/eslint-config-xo/blob/main/index.js
