@@ -39,9 +39,6 @@ const config = {
 		"plugin:security/recommended",
 		"plugin:unicorn/recommended",
 		"plugin:jsx-a11y/recommended",
-		"plugin:jest/recommended",
-		"plugin:jest/style",
-		"plugin:testing-library/react",
 	],
 	rules: {
 		// Enable extra rules
@@ -282,6 +279,14 @@ const config = {
 				"unicorn/no-useless-spread": "off", // Clashes with getDefaultMiddleware().concat
 				"import/no-anonymous-default-export": "off",
 			},
+		},
+		{
+			files: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
+			extends: [
+				"plugin:jest/recommended",
+				"plugin:jest/style",
+				"plugin:testing-library/react",
+			],
 		},
 	],
 };
