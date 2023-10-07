@@ -315,21 +315,4 @@ config.overrides.push({
 	},
 });
 
-if (process.env.ESLINT_NO_IMPORTS) {
-	for (const key of Object.keys(config.rules)) {
-		if (key.startsWith("import/")) {
-			delete config.rules[key];
-		}
-	}
-
-	const list = new Set(config.extends);
-	for (const plugin of list) {
-		if (plugin.startsWith("plugin:import/")) {
-			list.delete(plugin);
-		}
-	}
-
-	config.extends = [...list];
-}
-
 module.exports = config;
