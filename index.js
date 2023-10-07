@@ -315,14 +315,4 @@ config.overrides.push({
 	},
 });
 
-if (process.env.ESLINT_NO_IMPORTS) {
-	const importRules = Object.keys(require("eslint-plugin-import").rules);
-	config.overrides.push({
-		files: ["**"],
-		rules: Object.fromEntries(
-			importRules.map((rule) => [`import/${rule}`, "off"])
-		),
-	});
-}
-
 module.exports = config;
