@@ -316,20 +316,13 @@ config.overrides.push({
 });
 
 if (process.env.ESLINT_NO_IMPORTS) {
-	for (const key of Object.keys(config.rules)) {
-		if (key.startsWith("import/")) {
-			delete config.rules[key];
-		}
-	}
-
-	const list = new Set(config.extends);
-	for (const plugin of list) {
-		if (plugin.startsWith("plugin:import/")) {
-			list.delete(plugin);
-		}
-	}
-
-	config.extends = [...list];
+	const importRules = Object.keys(require("eslint-plugin-import").rules);
+	config.overrides.push({
+		files: ["**"],
+		rules: Object.fromEntries(
+			importRules.map((rule) => [`import/${rule}`, "off"])
+		),
+	});
 }
 
 module.exports = config;
