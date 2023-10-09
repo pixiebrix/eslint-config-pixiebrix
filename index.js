@@ -122,11 +122,6 @@ const config = {
 			},
 		],
 
-		// Modern JS rules, will be enabled upstream in May 2023
-		// https://github.com/sindresorhus/eslint-plugin-unicorn/blob/20e959ffadeca007697534f1ad58c45d29cfdb04/configs/recommended.js#L72
-		"unicorn/prefer-at": "error",
-		"unicorn/prefer-string-replace-all": "error",
-
 		// Customize some rules
 		quotes: ["error", "double", { avoidEscape: true }], // Matches Prettier, but also replaces backticks
 
@@ -137,6 +132,8 @@ const config = {
 				delete config.types.null;
 			}
 		),
+		"@typescript-eslint/no-non-null-assertion": "error",
+
 		"unicorn/prefer-export-from": [
 			"error",
 			{
@@ -255,14 +252,13 @@ const config = {
 		"node/prefer-global/process": "off", // `process.env` is required by webpack
 		"node/prefer-global/buffer": "off",
 
-		// Disabling base rule to use the typescript extension
-		"no-use-before-define": "off",
-		// Disabling functions -- functions are hoisted and not a risk
-		// https://eslint.org/docs/latest/rules/no-use-before-define#options
 		"@typescript-eslint/no-use-before-define": [
 			"error",
 			{
+				// Disabling functions -- functions are hoisted and not a risk
+				// https://eslint.org/docs/latest/rules/no-use-before-define#options
 				functions: false,
+				// https://typescript-eslint.io/rules/no-use-before-define/#options
 				ignoreTypeReferences: false,
 			},
 		],
@@ -290,10 +286,14 @@ const config = {
 				"plugin:jest/style",
 				"plugin:testing-library/react",
 			],
+			rules: {
+				"@typescript-eslint/no-non-null-assertion": "off",
+			},
 		},
 	],
 };
 
+// Add override this way because it depends on the object above
 config.overrides.push({
 	files: ["src/*"],
 	rules: {
