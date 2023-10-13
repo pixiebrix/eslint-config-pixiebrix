@@ -8,6 +8,8 @@ module.exports.rules = {
 
 	// Loosen types a bit to facilitate testing
 	"@typescript-eslint/no-explicit-any": "off",
+	"@typescript-eslint/no-unsafe-argument": "off",
+	"@typescript-eslint/no-non-null-assertion": "off",
 
 	// Tests can import any file
 	"import/no-restricted-paths": "off",
@@ -25,4 +27,8 @@ module.exports.rules = {
 
 	// It's a Webpack optimization, not necessary here
 	"import/dynamic-import-chunkname": "off",
+
+	// Disable test rules we don't like
+	"jest/no-export": "off",
+	"testing-library/render-result-naming-convention": "off",
 };
