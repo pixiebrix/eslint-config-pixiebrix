@@ -94,6 +94,7 @@ const config = {
 				],
 			},
 		],
+
 		// Avoid imports with side effects
 		"import/no-unassigned-import": [
 			"error",
@@ -133,6 +134,13 @@ const config = {
 			}
 		),
 		"@typescript-eslint/no-non-null-assertion": "error",
+		"@typescript-eslint/no-explicit-any": [
+			"error",
+			{
+				fixToUnknown: true,
+				ignoreRestArgs: true,
+			},
+		],
 
 		"unicorn/prefer-export-from": [
 			"error",
