@@ -273,6 +273,13 @@ const config = {
 	},
 	overrides: [
 		{
+			// JS files shouldn't have TypeScript rules, but it's bothersome to separate them properly
+			files: ["**/*.js"],
+			rules: {
+				"@typescript-eslint/no-unsafe-argument": "off",
+			},
+		},
+		{
 			files: ["**/*.tsx", "**/use*.ts"],
 			excludedFiles: ["*.test.tsx", "*.stories.tsx"],
 			rules: {
