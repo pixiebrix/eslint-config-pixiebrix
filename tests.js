@@ -23,8 +23,7 @@ module.exports = {
 		// Common and required usage in tests
 		"unicorn/no-useless-undefined": "off",
 
-		// Disable test rules we don't like
-		"jest/no-export": "off",
+		// These 2 make the tests less readable/idiomatic
 		"jest/no-conditional-expect": "off",
 		"unicorn/consistent-function-scoping": "off",
 	},
