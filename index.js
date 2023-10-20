@@ -28,7 +28,7 @@ const config = {
 		},
 	},
 	ignorePatterns: [".idea", "dist", "**/__mocks__/**"],
-	plugins: ["filenames", "jsx-a11y", "jest", "testing-library"],
+	plugins: ["filenames", "jsx-a11y"],
 	extends: [
 		"./xoPluginsConfig.js",
 		"xo", // Full config: https://github.com/xojs/eslint-config-xo/blob/main/index.js
@@ -39,9 +39,9 @@ const config = {
 		"plugin:security/recommended",
 		"plugin:unicorn/recommended",
 		"plugin:jsx-a11y/recommended",
-		"plugin:jest/recommended",
-		"plugin:jest/style",
-		"plugin:testing-library/react",
+		/**************************************************************
+		 * Only add test rules and plugins to the "./tests.js" config *
+		 **************************************************************/
 	],
 	rules: {
 		// Enable extra rules
@@ -288,15 +288,11 @@ const config = {
 			},
 		},
 		{
-			files: ["**/__tests__/**/*.[jt]s?(x)", "**/?(*.)+(spec|test).[jt]s?(x)"],
-			extends: [
-				"plugin:jest/recommended",
-				"plugin:jest/style",
-				"plugin:testing-library/react",
-			],
-			rules: {
-				"@typescript-eslint/no-non-null-assertion": "off",
-			},
+			/**************************************************************
+			 * Only add test rules and plugins to the "./tests.js" config *
+			 **************************************************************/
+			files: ["*.test.ts?(x)"],
+			extends: ["./tests.js"],
 		},
 	],
 };
