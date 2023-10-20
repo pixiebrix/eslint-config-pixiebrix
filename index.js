@@ -287,13 +287,9 @@ const config = {
 				"import/no-anonymous-default-export": "off",
 			},
 		},
-		{
-			/**************************************************************
-			 * Only add test rules and plugins to the "./tests.js" config *
-			 **************************************************************/
-			files: ["*.test.ts?(x)"],
-			extends: ["./tests.js"],
-		},
+		/**************************************************************
+		 * Only add test rules and plugins to the "./tests.js" config *
+		 **************************************************************/
 	],
 };
 

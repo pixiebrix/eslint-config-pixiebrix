@@ -1,6 +1,10 @@
 /** @file These additional rules are meant for tests in order to make it stricter as well as simplify it */
 
 module.exports = {
+	env: {
+		node: true,
+		jest: true,
+	},
 	plugins: ["jest", "testing-library"],
 	extends: [
 		"plugin:jest/recommended",
