@@ -26,5 +26,6 @@ module.exports = {
 		// Disable test rules we don't like
 		"jest/no-export": "off",
 		"jest/no-conditional-expect": "off",
+		"unicorn/consistent-function-scoping": "off",
 	},
 };
