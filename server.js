@@ -1,4 +1,4 @@
-module.exports.extends = ["plugin:jest/recommended"];
+/** @file These additional rules are meant for development code in order to simplify it */
 
 module.exports.rules = {
 	// Allow CJS because not all tooling is ready
@@ -8,20 +8,13 @@ module.exports.rules = {
 
 	// Loosen types a bit to facilitate testing
 	"@typescript-eslint/no-explicit-any": "off",
-
-	// Tests can import any file
-	"import/no-restricted-paths": "off",
+	"@typescript-eslint/no-unsafe-argument": "off",
+	"@typescript-eslint/no-non-null-assertion": "off",
 
 	// The webpack/testing files only run on the CI server, so don't need to watch for these:
 	"security/detect-object-injection": "off",
 	"security/detect-child-process": "off",
 	"security/detect-unsafe-regex": "off",
-
-	"jest/no-conditional-expect": "off",
-	"unicorn/consistent-function-scoping": "off",
-
-	// Common and required usage in tests
-	"unicorn/no-useless-undefined": "off",
 
 	// It's a Webpack optimization, not necessary here
 	"import/dynamic-import-chunkname": "off",
