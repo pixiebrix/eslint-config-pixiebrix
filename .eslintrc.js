@@ -1,6 +1,6 @@
 // These are rules that apply this to repo, they're not exported. Ignore.
 module.exports = {
-	extends: ["./index.js", "./server.js"],
+	extends: ["./index.js", "./development.js"],
 	rules: {
 		"filenames/match-exported": "off",
 	},

@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"files": [
 		"index.js",
-		"server.js",
+		"development.js",
 		"tests.js",
 		"xoPluginsConfig.js"
 	],
