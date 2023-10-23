@@ -25,6 +25,7 @@ jobs:
           node-version: 18
           registry-url: https://registry.npmjs.org
       - run: npm ci || npm install
+      - run: npm test
       - uses: fregante/setup-git-user@v2
       - name: Create version
         # Get the generated version, this enables support for keywords: `npm version patch`
