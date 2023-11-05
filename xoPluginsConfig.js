@@ -181,8 +181,5 @@ module.exports = {
 
 		// Disabled as it's already covered by the `unicorn/no-abusive-eslint-disable` rule.
 		// 'eslint-comments/no-unlimited-disable': 'error',
-
-		"eslint-comments/no-unused-disable": "error",
-		"eslint-comments/no-unused-enable": "error",
 	},
 };

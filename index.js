@@ -37,7 +37,7 @@ const config = {
 		"plugin:react/recommended",
 		"plugin:react-hooks/recommended",
 		"plugin:security/recommended",
-		"plugin:unicorn/recommended",
+		"plugin:unicorn/recommended", // Full config: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/configs/recommended.js
 		"plugin:jsx-a11y/recommended",
 		/**************************************************************
 		 * Only add test rules and plugins to the "./tests.js" config *
@@ -217,7 +217,6 @@ const config = {
 		"unicorn/no-null": "off", // We don't do that here
 		"react/prop-types": "off", // We don't do that here
 		"no-warning-comments": "off", // Only useful if there aren't hundreds of other real warnings
-		"eslint-comments/no-unused-disable": "off", // Seems buggy with "next-line"
 		"security/detect-non-literal-fs-filename": "off", // 100% false positives, we never use the `fs` module
 		"unicorn/no-nested-ternary": "off", // Sometimes it conflicts with Prettier
 		"unicorn/prefer-set-has": "off", // Not always worth the extra code
@@ -235,18 +234,11 @@ const config = {
 		"import/no-named-as-default-member": "off", // It's common to use `React.memo` instead of just `memo`
 		"@typescript-eslint/consistent-type-assertions": "off", // Our current typing has too many `unknowns` for this to be applicable https://github.com/typescript-eslint/typescript-eslint/issues/4462
 
-		// TODO: The rule is currently broken, it should accept `throw unknown` but doesn't
-		"@typescript-eslint/no-throw-literal": "off",
-
 		// Disable rule until we find a better config https://github.com/pixiebrix/eslint-config-pixiebrix/issues/5
 		"@typescript-eslint/naming-convention": "off",
 
-		// Too strict for now
-		"@typescript-eslint/no-unsafe-assignment": "off",
-		"@typescript-eslint/no-unsafe-member-access": "off",
-		"@typescript-eslint/no-unsafe-return": "off",
-		"@typescript-eslint/no-unsafe-call": "off",
-		"@typescript-eslint/prefer-nullish-coalescing": "off", // Requires strictNullChecks
+		// Requires strictNullChecks
+		"@typescript-eslint/prefer-nullish-coalescing": "off",
 
 		// Maybe later, opinionated
 		"unicorn/prefer-ternary": "off",
@@ -277,6 +269,10 @@ const config = {
 			files: ["**/*.js"],
 			rules: {
 				"@typescript-eslint/no-unsafe-argument": "off",
+				"@typescript-eslint/no-unsafe-assignment": "off",
+				"@typescript-eslint/no-unsafe-call": "off",
+				"@typescript-eslint/no-unsafe-member-access": "off",
+				"@typescript-eslint/no-unsafe-return": "off",
 			},
 		},
 		{
