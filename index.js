@@ -284,6 +284,7 @@ const config = {
 		},
 		{
 			files: ["*.stories.tsx"],
+			extends: ["plugin:storybook/recommended"],
 			rules: {
 				"unicorn/filename-case": "off",
 				"unicorn/no-useless-spread": "off", // Clashes with getDefaultMiddleware().concat
