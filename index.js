@@ -221,7 +221,6 @@ const config = {
 		"unicorn/no-nested-ternary": "off", // Sometimes it conflicts with Prettier
 		"unicorn/prefer-set-has": "off", // Not always worth the extra code
 		"unicorn/prefer-top-level-await": "off", // No advantage in browsers
-		"import/no-cycle": "off", // Unreasonably slow (90 sec lint -> 5 minutes) https://github.com/pixiebrix/pixiebrix-extension/issues/1080
 		"import/no-extraneous-dependencies": "off", // Not worth it
 		"@typescript-eslint/triple-slash-reference": "off", // No alternative sometimes
 		"@typescript-eslint/consistent-type-definitions": "off", // `type` cannot be used to extend globals
