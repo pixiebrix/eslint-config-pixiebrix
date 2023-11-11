@@ -1,6 +1,6 @@
 {
 	"name": "eslint-config-pixiebrix",
-	"version": "0.31.0",
+	"version": "0.32.0",
 	"description": "ESLint shareable config for PixieBrix",
 	"repository": "pixiebrix/eslint-config-pixiebrix",
 	"license": "MIT",
