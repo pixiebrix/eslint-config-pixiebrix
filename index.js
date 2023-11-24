@@ -67,6 +67,11 @@ const config = {
 						message: 'You can import "lodash" instead of "lodash/*".',
 					},
 					{
+						group: ["immer/*"],
+						importNames: ["WritableDraft"],
+						message: 'Use this instead: import { type Draft } from "immer"',
+					},
+					{
 						group: ["react-spinners"],
 						message:
 							"Use the local <Loader/> component instead, it's already centered.",
@@ -84,12 +89,12 @@ const config = {
 					{
 						group: ["formik"],
 						importNames: ["Form", "Formik"],
-						message: "Import @/components/form/Form instead",
+						message: 'Use this instead: import "@/components/form/Form"',
 					},
 					{
 						group: ["react-bootstrap"],
 						importNames: ["Form"],
-						message: "Import @/components/form/Form instead",
+						message: 'Use this instead: import "@/components/form/Form"',
 					},
 				],
 			},
