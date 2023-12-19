@@ -36,7 +36,7 @@ const config = {
 		"prettier", // Disable style-related rules
 		"plugin:react/recommended",
 		"plugin:react-hooks/recommended",
-		"plugin:security/recommended",
+		"plugin:security/recommended-legacy",
 		"plugin:unicorn/recommended", // Full config: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/configs/recommended.js
 		"plugin:jsx-a11y/recommended",
 		/**************************************************************
