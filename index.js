@@ -96,6 +96,11 @@ const config = {
 						importNames: ["Form"],
 						message: 'Use this instead: import "@/components/form/Form"',
 					},
+					{
+						group: ["webext-detect-page"],
+						importNames: ["isDevToolsPage"],
+						message: 'Use this instead: import { isPageEditor } from "@/utils/expectContext";',
+					},
 				],
 			},
 		],
