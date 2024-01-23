@@ -45,6 +45,7 @@ const config = {
 	],
 	rules: {
 		// Enable extra rules
+		"react/jsx-no-useless-fragment": "error",
 		"import/dynamic-import-chunkname": [
 			"error",
 			{
