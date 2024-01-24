@@ -57,6 +57,11 @@ const config = {
 			"error",
 			{
 				// Documentation: https://eslint.org/docs/rules/no-restricted-imports#options
+				paths: [{
+					name: "lodash",
+					importNames: ["lowerCase"],
+					message: "Use the native String.toLowerCase method instead."
+				}],
 				patterns: [
 					{
 						group: ["*/__mocks__/*"],
