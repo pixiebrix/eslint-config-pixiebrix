@@ -225,8 +225,7 @@ const config = {
 				},
 			},
 		],
-		// Smart allows for != null. See: https://github.com/pixiebrix/pixiebrix-extension/pull/887#pullrequestreview-711873690
-		eqeqeq: ["error", "smart"],
+		eqeqeq: ["error", "always", { null: "never" }],
 
 		// Disable recommended rules
 		"no-eq-null": "off", // `eqeqeq` covers it: https://github.com/pixiebrix/pixiebrix-extension/pull/887#pullrequestreview-711873690
