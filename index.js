@@ -83,6 +83,11 @@ const config = {
 							"Use the local <Loader/> component instead, it's already centered.",
 					},
 					{
+						group: ["use-sync-external-store", "!use-sync-external-store/shim"],
+						message:
+							"In React 17, import \"use-sync-external-store/shim\", not \"use-sync-external-store\".",
+					},
+					{
 						group: ["react-bootstrap/*", "!react-bootstrap/types"],
 						message:
 							'You can import "react-bootstrap" instead of "react-bootstrap/*".',
