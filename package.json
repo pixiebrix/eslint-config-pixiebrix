@@ -11,8 +11,8 @@
 		"xoPluginsConfig.js"
 	],
 	"scripts": {
-		"fix": "eslint . --fix",
-		"test": "eslint ."
+		"fix": "npm test -- --fix",
+		"test": "eslint . --ext .js,.jsx,.ts,.tsx"
 	},
 	"dependencies": {
 		"@typescript-eslint/eslint-plugin": "^6.7.0",

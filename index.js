@@ -57,11 +57,13 @@ const config = {
 			"error",
 			{
 				// Documentation: https://eslint.org/docs/rules/no-restricted-imports#options
-				paths: [{
-					name: "lodash",
-					importNames: ["lowerCase"],
-					message: "Use the native String.toLowerCase method instead."
-				}],
+				paths: [
+					{
+						name: "lodash",
+						importNames: ["lowerCase"],
+						message: "Use the native String.toLowerCase method instead.",
+					},
+				],
 				patterns: [
 					{
 						group: ["*/__mocks__/*"],
@@ -84,8 +86,9 @@ const config = {
 					},
 					{
 						group: ["use-sync-external-store", "!use-sync-external-store/shim"],
+						importNames: ["useSyncExternalStore"],
 						message:
-							"In React 17, import \"use-sync-external-store/shim\", not \"use-sync-external-store\".",
+							'In React 17, import "use-sync-external-store/shim", not "use-sync-external-store".',
 					},
 					{
 						group: ["react-bootstrap/*", "!react-bootstrap/types"],
@@ -110,7 +113,8 @@ const config = {
 					{
 						group: ["webext-detect-page"],
 						importNames: ["isDevToolsPage"],
-						message: 'Use this instead: import { isPageEditor } from "@/utils/expectContext";',
+						message:
+							'Use this instead: import { isPageEditor } from "@/utils/expectContext";',
 					},
 				],
 			},
