@@ -45,7 +45,7 @@ const config = {
 	],
 	rules: {
 		// Enable extra rules
-		"react/jsx-no-useless-fragment": "error",
+
 		"import/dynamic-import-chunkname": [
 			"error",
 			{
@@ -57,11 +57,13 @@ const config = {
 			"error",
 			{
 				// Documentation: https://eslint.org/docs/rules/no-restricted-imports#options
-				paths: [{
-					name: "lodash",
-					importNames: ["lowerCase"],
-					message: "Use the native String.toLowerCase method instead."
-				}],
+				paths: [
+					{
+						name: "lodash",
+						importNames: ["lowerCase"],
+						message: "Use the native String.toLowerCase method instead.",
+					},
+				],
 				patterns: [
 					{
 						group: ["*/__mocks__/*"],
@@ -105,7 +107,8 @@ const config = {
 					{
 						group: ["webext-detect-page"],
 						importNames: ["isDevToolsPage"],
-						message: 'Use this instead: import { isPageEditor } from "@/utils/expectContext";',
+						message:
+							'Use this instead: import { isPageEditor } from "@/utils/expectContext";',
 					},
 				],
 			},
@@ -138,6 +141,10 @@ const config = {
 				],
 			},
 		],
+
+		// TODO: Drop/replace `allowExpressions` after https://github.com/jsx-eslint/eslint-plugin-react/issues/2584
+		// https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md#allowexpressions
+		"react/jsx-no-useless-fragment": ["error", { allowExpressions: true }],
 
 		// Customize some rules
 		quotes: ["error", "double", { avoidEscape: true }], // Matches Prettier, but also replaces backticks
