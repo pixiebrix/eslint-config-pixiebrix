@@ -21,9 +21,6 @@ module.exports = {
 		"@typescript-eslint/no-unsafe-return": "off",
 		"@typescript-eslint/no-non-null-assertion": "off",
 
-		// Tests can import any file
-		"import/no-restricted-paths": "off",
-
 		// Common and required usage in tests
 		"unicorn/no-useless-undefined": "off",
 
