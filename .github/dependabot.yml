@@ -11,6 +11,10 @@ updates:
     open-pull-requests-limit: 20
     assignees:
       - johnnymetz
+    groups:
+      typescript-eslint:
+        patterns:
+          - "@typescript-eslint/*"
   - package-ecosystem: github-actions
     directory: /
     schedule:
