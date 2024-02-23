@@ -146,6 +146,8 @@ const config = {
 		// https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md#allowexpressions
 		"react/jsx-no-useless-fragment": ["error", { allowExpressions: true }],
 
+		"react/no-object-type-as-default-prop": "error",
+
 		// Customize some rules
 		quotes: ["error", "double", { avoidEscape: true }], // Matches Prettier, but also replaces backticks
 
