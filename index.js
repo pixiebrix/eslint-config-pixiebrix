@@ -38,7 +38,7 @@ const config = {
 		"plugin:react-hooks/recommended",
 		"plugin:security/recommended-legacy",
 		"plugin:unicorn/recommended", // Full config: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/configs/recommended.js
-		"plugin:jsx-a11y/recommended",
+		"plugin:jsx-a11y/recommended", // Full config https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/src/index.js#L55
 		/**************************************************************
 		 * Only add test rules and plugins to the "./tests.js" config *
 		 **************************************************************/
