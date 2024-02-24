@@ -156,6 +156,10 @@ const config = {
 				delete config.types.null;
 			}
 		),
+		"@typescript-eslint/restrict-template-expressions": [
+			"error",
+			{ allowNever: true, allowNumber: true },
+		],
 		"@typescript-eslint/no-non-null-assertion": "error",
 		"@typescript-eslint/no-explicit-any": [
 			"error",
