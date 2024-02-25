@@ -8,11 +8,13 @@
 		"index.js",
 		"development.js",
 		"tests.js",
+		"no-restricted-syntax.js",
+		"no-restricted-imports.js",
 		"xoPluginsConfig.js"
 	],
 	"scripts": {
-		"fix": "eslint . --fix",
-		"test": "eslint ."
+		"fix": "npm run test -- --fix",
+		"test": "eslint .  --ext .ts"
 	},
 	"dependencies": {
 		"@typescript-eslint/eslint-plugin": "^7.0.2",

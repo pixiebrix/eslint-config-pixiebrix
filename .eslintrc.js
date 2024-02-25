@@ -3,6 +3,12 @@ module.exports = {
 	extends: ["./index.js", "./development.js"],
 	rules: {
 		"filenames/match-exported": "off",
+		"unicorn/filename-case": [
+			"error",
+			{
+				case: "kebabCase", // Keep ESLint standard
+			},
+		],
 	},
 	settings: {
 		react: {
