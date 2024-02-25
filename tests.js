@@ -1,5 +1,10 @@
 /** @file These additional rules are meant for tests in order to make it stricter as well as simplify it */
 
+const a11yRules = Object.keys(require("eslint-plugin-jsx-a11y").rules).map((rule) => [
+	`jsx-a11y/${rule}`,
+	"off",
+]);
+
 module.exports = {
 	env: {
 		node: true,
@@ -27,5 +32,8 @@ module.exports = {
 		// These 2 make the tests less readable/idiomatic
 		"jest/no-conditional-expect": "off",
 		"unicorn/consistent-function-scoping": "off",
+
+		// No a11y needed in tests
+		...Object.fromEntries(a11yRules),
 	},
 };
