@@ -1,6 +1,6 @@
 /** @file These additional rules are meant for tests in order to make it stricter as well as simplify it */
 
-const a11yRules = require("eslint-plugin-jsx-a11y").rules.map((rule) => [
+const a11yRules = Object.keys(require("eslint-plugin-jsx-a11y").rules).map((rule) => [
 	`jsx-a11y/${rule}`,
 	"off",
 ]);
