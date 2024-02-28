@@ -10,7 +10,7 @@
 		"tests.js",
 		"no-restricted-syntax.js",
 		"no-restricted-imports.js",
-		"xoPluginsConfig.js"
+		"xo-plugins-config.js"
 	],
 	"scripts": {
 		"fix": "npm run test -- --fix",
