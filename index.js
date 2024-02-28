@@ -265,26 +265,4 @@ const config = {
 	],
 };
 
-// Add override this way because it depends on the object above
-config.overrides.push({
-	files: ["src/*"],
-	rules: {
-		"no-restricted-imports": [
-			"error",
-			{
-				// Documentation: https://eslint.org/docs/rules/no-restricted-imports#options
-				patterns: [
-					// Extend the existing patterns
-					...config.rules["no-restricted-imports"][1].patterns,
-					{
-						group: ["./*"],
-						message:
-							'Use root-based imports (`import "@/something"`) instead of relative imports.',
-					},
-				],
-			},
-		],
-	},
-});
-
 module.exports = config;
