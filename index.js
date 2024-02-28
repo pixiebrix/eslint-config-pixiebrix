@@ -99,10 +99,22 @@ const config = {
 				delete config.types.null;
 			}
 		),
+
+		// Reason: https://github.com/pixiebrix/pixiebrix-extension/pull/7703
 		"@typescript-eslint/restrict-template-expressions": [
 			"error",
 			{ allowNever: true, allowNumber: true },
 		],
+
+		// We want to have a default case to check for `never`
+		"@typescript-eslint/switch-exhaustiveness-check": [
+			"error",
+			{
+				allowDefaultCaseForExhaustiveSwitch: true,
+				requireDefaultForNonUnion: true,
+			},
+		],
+
 		"@typescript-eslint/no-non-null-assertion": "error",
 		"@typescript-eslint/no-explicit-any": [
 			"error",
