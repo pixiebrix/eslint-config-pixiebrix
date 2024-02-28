@@ -1,5 +1,6 @@
 module.exports = [
 	// NOTE: If you add more rules, add the tests to no-restricted-syntax.test.ts
+
 	{
 		selector:
 			"TSTypeReference[typeName.name='Record'][typeParameters.params.0.type=TSStringKeyword][typeParameters.params.1.type=TSUnknownKeyword]",
@@ -35,5 +36,11 @@ module.exports = [
 		selector:
 			"CallExpression[callee.property.name='mockResolvedValue'][arguments.0.name='undefined'][arguments.0.type='Identifier']",
 	},
+	{
+		message: "Use this instead: import cx from 'classnames'",
+		selector:
+			"ImportDeclaration[source.value=classnames] ImportDefaultSpecifier[local.name!=/cx/]",
+	},
+
 	// NOTE: If you add more rules, add the tests to no-restricted-syntax.test.ts
 ];
