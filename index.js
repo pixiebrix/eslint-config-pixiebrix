@@ -30,7 +30,7 @@ const config = {
 	ignorePatterns: [".idea", "dist", "**/__mocks__/**"],
 	plugins: ["filenames", "jsx-a11y"],
 	extends: [
-		"./xoPluginsConfig.js",
+		"./xo-plugins-config.js",
 		"xo", // Full config: https://github.com/xojs/eslint-config-xo/blob/main/index.js
 		"xo-typescript", // Full config: https://github.com/xojs/eslint-config-xo-typescript/blob/main/index.js
 		"prettier", // Disable style-related rules
@@ -52,6 +52,8 @@ const config = {
 				webpackChunknameFormat: "[a-zA-Z0-57-9-/_\\[\\].]+",
 			},
 		],
+
+		"no-restricted-syntax": ["error", ...require("./no-restricted-syntax")],
 
 		"no-restricted-imports": [
 			"error",
