@@ -53,68 +53,9 @@ const config = {
 			},
 		],
 
-		"no-restricted-syntax": ["error", ...require("./no-restricted-syntax")],
+		"no-restricted-imports": ["error", require("./no-restricted-imports")],
 
-		"no-restricted-imports": [
-			"error",
-			{
-				// Documentation: https://eslint.org/docs/rules/no-restricted-imports#options
-				paths: [
-					{
-						name: "lodash",
-						importNames: ["lowerCase"],
-						message: "Use the native String.toLowerCase method instead.",
-					},
-				],
-				patterns: [
-					{
-						group: ["*/__mocks__/*"],
-						message:
-							"Mocks should not be imported directly, they’re automatically picked up where needed.",
-					},
-					{
-						group: ["lodash/*"],
-						message: 'You can import "lodash" instead of "lodash/*".',
-					},
-					{
-						group: ["immer/*"],
-						importNames: ["WritableDraft"],
-						message: 'Use this instead: import { type Draft } from "immer"',
-					},
-					{
-						group: ["react-spinners"],
-						message:
-							"Use the local <Loader/> component instead, it's already centered.",
-					},
-					{
-						group: ["react-bootstrap/*", "!react-bootstrap/types"],
-						message:
-							'You can import "react-bootstrap" instead of "react-bootstrap/*".',
-					},
-					{
-						group: ["../*"],
-						message:
-							'Use root-based imports (`import "@/something"`) instead of relative imports.',
-					},
-					{
-						group: ["formik"],
-						importNames: ["Form", "Formik"],
-						message: 'Use this instead: import "@/components/form/Form"',
-					},
-					{
-						group: ["react-bootstrap"],
-						importNames: ["Form"],
-						message: 'Use this instead: import "@/components/form/Form"',
-					},
-					{
-						group: ["webext-detect-page"],
-						importNames: ["isDevToolsPage"],
-						message:
-							'Use this instead: import { isPageEditor } from "@/utils/expectContext";',
-					},
-				],
-			},
-		],
+		"no-restricted-syntax": ["error", ...require("./no-restricted-syntax")],
 
 		// Avoid imports with side effects
 		"import/no-unassigned-import": [
@@ -323,27 +264,5 @@ const config = {
 		 **************************************************************/
 	],
 };
-
-// Add override this way because it depends on the object above
-config.overrides.push({
-	files: ["src/*"],
-	rules: {
-		"no-restricted-imports": [
-			"error",
-			{
-				// Documentation: https://eslint.org/docs/rules/no-restricted-imports#options
-				patterns: [
-					// Extend the existing patterns
-					...config.rules["no-restricted-imports"][1].patterns,
-					{
-						group: ["./*"],
-						message:
-							'Use root-based imports (`import "@/something"`) instead of relative imports.',
-					},
-				],
-			},
-		],
-	},
-});
 
 module.exports = config;

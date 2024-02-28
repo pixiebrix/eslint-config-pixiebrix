@@ -9,6 +9,7 @@
 		"development.js",
 		"tests.js",
 		"no-restricted-syntax.js",
+		"no-restricted-imports.js",
 		"xoPluginsConfig.js"
 	],
 	"scripts": {
