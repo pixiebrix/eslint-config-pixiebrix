@@ -10,7 +10,7 @@ updates:
       day: sunday
     open-pull-requests-limit: 20
     assignees:
-      - grahamlangford
+      - fregante
     groups:
       typescript-eslint:
         patterns:
@@ -22,4 +22,4 @@ updates:
       day: sunday
     open-pull-requests-limit: 20
     assignees:
-      - grahamlangford
+      - fregante
