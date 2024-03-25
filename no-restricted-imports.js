@@ -9,11 +9,6 @@ module.exports = {
 	],
 	patterns: [
 		{
-			group: ["*/__mocks__/*"],
-			message:
-				"Mocks should not be imported directly, they’re automatically picked up where needed.",
-		},
-		{
 			group: ["lodash/*"],
 			message: 'You can import "lodash" instead of "lodash/*".',
 		},
