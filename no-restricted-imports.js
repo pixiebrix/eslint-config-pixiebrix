@@ -28,11 +28,6 @@ module.exports = {
 				'You can import "react-bootstrap" instead of "react-bootstrap/*".',
 		},
 		{
-			group: ["../*"],
-			message:
-				'Use root-based imports (`import "@/something"`) instead of relative imports.',
-		},
-		{
 			group: ["formik"],
 			importNames: ["Form", "Formik"],
 			message: 'Use this instead: import "@/components/form/Form"',
