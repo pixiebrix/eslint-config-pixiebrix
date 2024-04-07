@@ -16,14 +16,6 @@ const config = {
 	env: {
 		browser: true,
 	},
-	settings: {
-		"import/resolver": {
-			typescript: {},
-		},
-		"import/ignore": [
-			"react-select", // For some reason it points to a flow JS file
-		],
-	},
 	ignorePatterns: [".idea", "dist", "**/__mocks__/**"],
 	plugins: ["filenames", "jsx-a11y"],
 	extends: [
@@ -39,6 +31,7 @@ const config = {
 		// Once some plugin configuration becomes "too large" it's extracted to its own file
 		"./plugins/jsdoc.js",
 		"./plugins/react.js",
+		"./plugins/import.js",
 
 		/**************************************************************
 		 * Only add test rules and plugins to the "./tests.js" config *
@@ -47,29 +40,10 @@ const config = {
 	rules: {
 		// Enable extra rules
 
-		"import/dynamic-import-chunkname": [
-			"error",
-			{
-				webpackChunknameFormat: "[a-zA-Z0-57-9-/_\\[\\].]+",
-			},
-		],
-
 		"no-restricted-imports": ["error", require("./no-restricted-imports")],
 
 		"no-restricted-syntax": ["error", ...require("./no-restricted-syntax")],
 
-		// Avoid imports with side effects
-		"import/no-unassigned-import": [
-			"error",
-			{
-				allow: [
-					"**/*.css",
-					"**/*.scss",
-					"**/reportUncaughtErrors",
-					"regenerator-runtime/runtime", // Automatic registration
-				],
-			},
-		],
 		"no-mixed-operators": [
 			"error",
 			{
@@ -198,16 +172,9 @@ const config = {
 		"unicorn/no-nested-ternary": "off", // Sometimes it conflicts with Prettier
 		"unicorn/prefer-set-has": "off", // Not always worth the extra code
 		"unicorn/prefer-top-level-await": "off", // No advantage in browsers
-		"import/no-extraneous-dependencies": "off", // Not worth it
 		"@typescript-eslint/triple-slash-reference": "off", // No alternative sometimes
 		"@typescript-eslint/consistent-type-definitions": "off", // `type` cannot be used to extend globals
 		"@typescript-eslint/no-dynamic-delete": "off", // Already covered by `security/detect-object-injection`
-
-		// Rules that duplicate TypeScript features
-		"import/default": "off",
-		"import/named": "off",
-		"import/no-named-as-default": "off", // Too slow
-		"import/no-named-as-default-member": "off", // It's common to use `React.memo` instead of just `memo`
 		"@typescript-eslint/consistent-type-assertions": "off", // Our current typing has too many `unknowns` for this to be applicable https://github.com/typescript-eslint/typescript-eslint/issues/4462
 
 		// Disable rule until we find a better config https://github.com/pixiebrix/eslint-config-pixiebrix/issues/5
@@ -221,9 +188,6 @@ const config = {
 		"@typescript-eslint/member-ordering": "off",
 		"@typescript-eslint/no-empty-function": "off",
 
-		"import/order": "off",
-		"import/extensions": "off",
-		"import/no-mutable-exports": "off",
 		"node/file-extension-in-import": "off",
 		"node/prefer-global/process": "off", // `process.env` is required by webpack
 		"node/prefer-global/buffer": "off",
