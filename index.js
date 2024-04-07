@@ -23,9 +23,6 @@ const config = {
 		"import/ignore": [
 			"react-select", // For some reason it points to a flow JS file
 		],
-		react: {
-			version: "detect",
-		},
 	},
 	ignorePatterns: [".idea", "dist", "**/__mocks__/**"],
 	plugins: ["filenames", "jsx-a11y"],
@@ -35,14 +32,14 @@ const config = {
 		"xo", // Full config: https://github.com/xojs/eslint-config-xo/blob/main/index.js
 		"xo-typescript", // Full config: https://github.com/xojs/eslint-config-xo-typescript/blob/main/index.js
 		"prettier", // Disable style-related rules
-		"plugin:react/recommended",
-		"plugin:react-hooks/recommended",
 		"plugin:security/recommended-legacy",
 		"plugin:unicorn/recommended", // Full config: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/configs/recommended.js
 		"plugin:jsx-a11y/recommended", // Full config https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/src/index.js#L55
 
 		// Once some plugin configuration becomes "too large" it's extracted to its own file
 		"./plugins/jsdoc.js",
+		"./plugins/react.js",
+
 		/**************************************************************
 		 * Only add test rules and plugins to the "./tests.js" config *
 		 **************************************************************/
@@ -88,10 +85,6 @@ const config = {
 				],
 			},
 		],
-
-		// TODO: Drop/replace `allowExpressions` after https://github.com/jsx-eslint/eslint-plugin-react/issues/2584
-		// https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md#allowexpressions
-		"react/jsx-no-useless-fragment": ["error", { allowExpressions: true }],
 
 		// Customize some rules
 		quotes: ["error", "double", { avoidEscape: true }], // Matches Prettier, but also replaces backticks
@@ -200,7 +193,6 @@ const config = {
 		// Disable recommended rules
 		"no-eq-null": "off", // `eqeqeq` covers it: https://github.com/pixiebrix/pixiebrix-extension/pull/887#pullrequestreview-711873690
 		"unicorn/no-null": "off", // We don't do that here
-		"react/prop-types": "off", // We don't do that here
 		"no-warning-comments": "off", // Only useful if there aren't hundreds of other real warnings
 		"security/detect-non-literal-fs-filename": "off", // 100% false positives, we never use the `fs` module
 		"unicorn/no-nested-ternary": "off", // Sometimes it conflicts with Prettier
