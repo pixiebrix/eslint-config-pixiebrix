@@ -41,6 +41,12 @@ module.exports = [
 		selector:
 			"ImportDeclaration[source.value=classnames] ImportDefaultSpecifier[local.name!=/cx/]",
 	},
+	{
+		message:
+			"Instead of `<div onClick/>`, use <UnstyledButton/> (`button` element) or  <ClickableElement/> (accessible `div` element)",
+		selector:
+			"JSXOpeningElement[name.name='div'][attributes.0.name.name='onClick']",
+	},
 
 	// NOTE: If you add more rules, add the tests to no-restricted-syntax.test.ts
 ];
