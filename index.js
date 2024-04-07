@@ -8,7 +8,7 @@ const config = {
 	plugins: ["filenames", "jsx-a11y"],
 	extends: [
 		"xo", // Full config: https://github.com/xojs/eslint-config-xo/blob/main/index.js
-		"./xo-plugins-config.js", // Vendored from xojs/xo package, it must be here as a baseline
+		"./vendors/xo-plugins-config.js", // Vendored from xojs/xo package, it must be here as a baseline
 
 		"prettier", // Disable style-related rules
 		"plugin:security/recommended-legacy",
