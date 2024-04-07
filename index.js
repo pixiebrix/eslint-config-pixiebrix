@@ -29,7 +29,6 @@ const config = {
 		// Enable extra rules
 		"@shopify/react-hooks-strict-return": "error",
 		"@shopify/prefer-module-scope-constants": "error",
-		"@shopify/jest/no-snapshots": "warn",
 
 		"no-restricted-imports": ["error", require("./no-restricted-imports")],
 		"no-restricted-syntax": ["error", ...require("./no-restricted-syntax")],
