@@ -17,6 +17,9 @@ module.exports = {
 		{
 			extends: [
 				"xo-typescript", // Full config: https://github.com/xojs/eslint-config-xo-typescript/blob/main/index.js
+
+				// Must be last. Disable style-related rules in the xo-typescript config
+				"prettier",
 			],
 			files: ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
 			rules: {

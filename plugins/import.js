@@ -1,12 +1,4 @@
 module.exports = {
-	settings: {
-		"import/resolver": {
-			typescript: {},
-		},
-		"import/ignore": [
-			"react-select", // For some reason it points to a flow JS file
-		],
-	},
 	rules: {
 		// It helps us identify the chunks generated/loaded in the browser
 		"import/dynamic-import-chunkname": [
@@ -42,4 +34,17 @@ module.exports = {
 		"import/extensions": "off",
 		"import/no-mutable-exports": "off",
 	},
+	overrides: [
+		{
+			files: ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts"],
+			settings: {
+				"import/resolver": {
+					typescript: {},
+				},
+				"import/ignore": [
+					"react-select", // For some reason it points to a flow JS file
+				],
+			},
+		},
+	],
 };

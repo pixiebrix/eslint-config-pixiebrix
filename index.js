@@ -10,7 +10,6 @@ const config = {
 		"xo", // Full config: https://github.com/xojs/eslint-config-xo/blob/main/index.js
 		"./vendors/xo-plugins-config.js", // Vendored from xojs/xo package, it must be here as a baseline
 
-		"prettier", // Disable style-related rules
 		"plugin:security/recommended-legacy",
 		"plugin:jsx-a11y/recommended", // Full config https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/src/index.js#L55
 
@@ -20,6 +19,9 @@ const config = {
 		"./plugins/import.js",
 		"./plugins/typescript.js",
 		"./plugins/unicorn.js",
+
+		// Must be last. Disable style-related rules
+		"prettier",
 
 		/**************************************************************
 		 * Only add test rules and plugins to the "./tests.js" config *
