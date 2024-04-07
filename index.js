@@ -31,6 +31,7 @@ const config = {
 	plugins: ["filenames", "jsx-a11y"],
 	extends: [
 		"./xo-plugins-config.js",
+
 		"xo", // Full config: https://github.com/xojs/eslint-config-xo/blob/main/index.js
 		"xo-typescript", // Full config: https://github.com/xojs/eslint-config-xo-typescript/blob/main/index.js
 		"prettier", // Disable style-related rules
@@ -39,6 +40,9 @@ const config = {
 		"plugin:security/recommended-legacy",
 		"plugin:unicorn/recommended", // Full config: https://github.com/sindresorhus/eslint-plugin-unicorn/blob/main/configs/recommended.js
 		"plugin:jsx-a11y/recommended", // Full config https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/main/src/index.js#L55
+
+		// Once some plugin configuration becomes "too large" it's extracted to its own file
+		"./plugins/jsdoc.js",
 		/**************************************************************
 		 * Only add test rules and plugins to the "./tests.js" config *
 		 **************************************************************/
