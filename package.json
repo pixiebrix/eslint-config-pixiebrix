@@ -4,14 +4,6 @@
 	"description": "ESLint shareable config for PixieBrix",
 	"repository": "pixiebrix/eslint-config-pixiebrix",
 	"license": "MIT",
-	"files": [
-		"index.js",
-		"development.js",
-		"tests.js",
-		"no-restricted-syntax.js",
-		"no-restricted-imports.js",
-		"xo-plugins-config.js"
-	],
 	"scripts": {
 		"fix": "npm run test -- --fix",
 		"test": "eslint .  --ext .ts"
