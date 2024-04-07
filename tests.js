@@ -28,6 +28,7 @@ module.exports = {
 		"@typescript-eslint/no-unsafe-assignment": "off",
 		"@typescript-eslint/no-unsafe-return": "off",
 		"@typescript-eslint/no-non-null-assertion": "off",
+		"react/jsx-key": "off",
 
 		// Common and required usage in tests
 		"unicorn/no-useless-undefined": "off",
