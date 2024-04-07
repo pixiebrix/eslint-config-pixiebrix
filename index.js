@@ -5,7 +5,7 @@ const config = {
 		browser: true,
 	},
 	ignorePatterns: [".idea", "dist", "**/__mocks__/**"],
-	plugins: ["filenames", "jsx-a11y"],
+	plugins: ["filenames", "jsx-a11y", "@shopify"],
 	extends: [
 		"xo", // Full config: https://github.com/xojs/eslint-config-xo/blob/main/index.js
 		"./vendors/xo-plugins-config.js", // Vendored from xojs/xo package, it must be here as a baseline
@@ -27,6 +27,9 @@ const config = {
 	],
 	rules: {
 		// Enable extra rules
+		"@shopify/react-hooks-strict-return": "error",
+		"@shopify/prefer-module-scope-constants": "error",
+		"@shopify/jest/no-snapshots": "warn",
 
 		"no-restricted-imports": ["error", require("./no-restricted-imports")],
 		"no-restricted-syntax": ["error", ...require("./no-restricted-syntax")],
