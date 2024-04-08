@@ -43,10 +43,5 @@ module.exports = {
 			message:
 				'Use this instead: import { isPageEditor } from "@/utils/expectContext";',
 		},
-		{
-			group: ["react-shadow/emotion"],
-			message:
-				'Use this instead: import EmotionShadowRoot from "@/components/EmotionShadowRoot"',
-		},
 	],
 };
