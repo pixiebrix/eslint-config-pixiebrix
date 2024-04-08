@@ -30,7 +30,7 @@ module.exports = {
 		"jsdoc/require-hyphen-before-param-description": ["error", "never"],
 		"jsdoc/require-asterisk-prefix": "error",
 		"jsdoc/check-line-alignment": "error",
-		"jsdoc/check-indentation": "warn", // Can't outfix the existing errors,I'll leave it as warning
+		"jsdoc/check-indentation": "warn", // TODO: Fix over time (no autofix)
 		"jsdoc/no-bad-blocks": ["error", { ignore: ["jest-environment-options"] }],
 		"jsdoc/no-blank-blocks": "error",
 		"jsdoc/no-blank-block-descriptions": "error",
