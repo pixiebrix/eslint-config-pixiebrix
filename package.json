@@ -35,12 +35,13 @@
 	},
 	"devDependencies": {
 		"eslint": "^8.57.0",
-		"typescript": "^5.3.3"
+		"typescript": "^5.4.5"
 	},
 	"peerDependencies": {
 		"eslint": ">=8.0.0"
 	},
 	"engines": {
-		"node": ">=16"
+		"node": "20.12.0",
+		"npm": "10.5.0"
 	}
 }

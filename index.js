@@ -55,6 +55,9 @@ const config = {
 
 		eqeqeq: ["error", "always", { null: "never" }],
 
+		// Override default Prettier rule: https://github.com/prettier/eslint-config-prettier/blob/5687e7de69ac132f053b4bc5474d5963aa3bf6d6/README.md#curly
+		curly: ["error", "all"],
+
 		// Disable recommended rules
 		"no-eq-null": "off", // `eqeqeq` covers it: https://github.com/pixiebrix/pixiebrix-extension/pull/887#pullrequestreview-711873690
 		"no-warning-comments": "off", // Only useful if there aren't hundreds of other real warnings
