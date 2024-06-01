@@ -9,7 +9,7 @@
 		"test": "eslint .  --ext .ts"
 	},
 	"dependencies": {
-		"@shopify/eslint-plugin": "^44.0.0",
+		"@shopify/eslint-plugin": "^45.0.0",
 		"@typescript-eslint/eslint-plugin": "^7.0.2",
 		"@typescript-eslint/parser": "^7.0.2",
 		"eslint-config-prettier": "^9.1.0",
