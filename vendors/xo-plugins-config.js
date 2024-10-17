@@ -14,7 +14,7 @@ module.exports = {
 		"promise",
 		"import",
 		"node",
-		"eslint-comments",
+		"@eslint-community/eslint-comments",
 	],
 	rules: {
 		"no-use-extend-native/no-use-extend-native": "error",
@@ -170,16 +170,16 @@ module.exports = {
 		"node/prefer-global/url": ["error", "always"],
 		"node/prefer-promises/dns": "error",
 		"node/prefer-promises/fs": "error",
-		"eslint-comments/disable-enable-pair": [
+		"@eslint-community/eslint-comments/disable-enable-pair": [
 			"error",
 			{
 				allowWholeFile: true,
 			},
 		],
-		"eslint-comments/no-aggregating-enable": "error",
-		"eslint-comments/no-duplicate-disable": "error",
+		"@eslint-community/eslint-comments/no-aggregating-enable": "error",
+		"@eslint-community/eslint-comments/no-duplicate-disable": "error",
 
 		// Disabled as it's already covered by the `unicorn/no-abusive-eslint-disable` rule.
-		// 'eslint-comments/no-unlimited-disable': 'error',
+		// '@eslint-community/eslint-comments/no-unlimited-disable': 'error',
 	},
 };
