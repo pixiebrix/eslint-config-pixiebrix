@@ -63,9 +63,9 @@ const config = {
 		"no-warning-comments": "off", // Only useful if there aren't hundreds of other real warnings
 		"security/detect-non-literal-fs-filename": "off", // 100% false positives, we never use the `fs` module
 
-		"node/file-extension-in-import": "off",
-		"node/prefer-global/process": "off", // `process.env` is required by webpack
-		"node/prefer-global/buffer": "off",
+		"n/file-extension-in-import": "off",
+		"n/prefer-global/process": "off", // `process.env` is required by webpack
+		"n/prefer-global/buffer": "off",
 	},
 	overrides: [
 		{
