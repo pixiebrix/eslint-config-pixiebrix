@@ -1,8 +1,8 @@
 /** @file These additional rules are meant for tests in order to make it stricter as well as simplify it */
 
-const a11yRules = Object.keys(
-	require("eslint-plugin-jsx-a11y").rules
-).map((rule) => [`jsx-a11y/${rule}`, "off"]);
+const a11yRules = Object.keys(require("eslint-plugin-jsx-a11y").rules).map(
+	(rule) => [`jsx-a11y/${rule}`, "off"],
+);
 
 module.exports = {
 	env: {
@@ -18,7 +18,7 @@ module.exports = {
 	rules: {
 		// Enable more testing rules
 		"jest/prefer-expect-resolves": "error",
-		"@shopify/jest/no-snapshots": "warn",
+		"@shopify/jest-no-snapshots": "warn",
 
 		// Loosen types a bit to facilitate testing
 		"@typescript-eslint/no-explicit-any": "off",
