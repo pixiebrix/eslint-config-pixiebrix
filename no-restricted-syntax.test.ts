@@ -1,7 +1,7 @@
 /** @file File that verifies rules in `no-restricted-syntax`. Each line MUST be preceded by `eslint-disable-next-line`, which acts as an "expect" assertion */
 
 /* Unrelated issues */
-/* eslint-disable import/no-duplicates */
+/* eslint-disable import-x/no-duplicates */
 /* eslint-disable unicorn/no-useless-undefined */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */

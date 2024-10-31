@@ -16,7 +16,7 @@ const config = {
 		// Once some plugin configuration becomes "too large" it's extracted to its own file
 		"./plugins/jsdoc.js",
 		"./plugins/react.js",
-		"./plugins/import.js",
+		"./plugins/import-x.js",
 		"./plugins/typescript.js",
 		"./plugins/unicorn.js",
 
@@ -81,7 +81,7 @@ const config = {
 			rules: {
 				"unicorn/filename-case": "off",
 				"unicorn/no-useless-spread": "off", // Clashes with getDefaultMiddleware().concat
-				"import/no-anonymous-default-export": "off",
+				"import-x/no-anonymous-default-export": "off",
 			},
 		},
 		/**************************************************************

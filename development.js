@@ -17,5 +17,5 @@ module.exports.rules = {
 	"security/detect-unsafe-regex": "off",
 
 	// It's a Webpack optimization, not necessary here
-	"import/dynamic-import-chunkname": "off",
+	"import-x/dynamic-import-chunkname": "off",
 };

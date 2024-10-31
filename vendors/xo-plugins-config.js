@@ -13,7 +13,7 @@ module.exports = {
 		"no-use-extend-native",
 		"unicorn",
 		"promise",
-		"import",
+		"import-x",
 		"n",
 		"@eslint-community/eslint-comments",
 	],
@@ -32,49 +32,49 @@ module.exports = {
 		"promise/valid-params": "error",
 		"promise/prefer-await-to-then": "error",
 
-		"import/default": "error",
-		"import/export": "error",
-		"import/extensions": [
+		"import-x/default": "error",
+		"import-x/export": "error",
+		"import-x/extensions": [
 			"error",
 			"always",
 			{
 				ignorePackages: true,
 			},
 		],
-		"import/first": "error",
+		"import-x/first": "error",
 
 		// Enabled, but disabled on TypeScript (https://github.com/xojs/xo/issues/576)
-		"import/named": "error",
+		"import-x/named": "error",
 
-		"import/namespace": [
+		"import-x/namespace": [
 			"error",
 			{
 				allowComputed: true,
 			},
 		],
-		"import/no-absolute-path": "error",
-		"import/no-anonymous-default-export": "error",
-		"import/no-named-default": "error",
-		"import/no-webpack-loader-syntax": "error",
-		"import/no-self-import": "error",
-		"import/no-cycle": [
+		"import-x/no-absolute-path": "error",
+		"import-x/no-anonymous-default-export": "error",
+		"import-x/no-named-default": "error",
+		"import-x/no-webpack-loader-syntax": "error",
+		"import-x/no-self-import": "error",
+		"import-x/no-cycle": [
 			"error",
 			{
 				ignoreExternal: true,
 			},
 		],
-		"import/no-useless-path-segments": "error",
-		"import/newline-after-import": "error",
-		"import/no-amd": "error",
-		"import/no-duplicates": "error",
+		"import-x/no-useless-path-segments": "error",
+		"import-x/newline-after-import": "error",
+		"import-x/no-amd": "error",
+		"import-x/no-duplicates": "error",
 
-		"import/no-extraneous-dependencies": "error",
-		"import/no-mutable-exports": "error",
-		"import/no-named-as-default-member": "error",
-		"import/no-named-as-default": "error",
+		"import-x/no-extraneous-dependencies": "error",
+		"import-x/no-mutable-exports": "error",
+		"import-x/no-named-as-default-member": "error",
+		"import-x/no-named-as-default": "error",
 
-		"import/order": "error",
-		"import/no-unassigned-import": [
+		"import-x/order": "error",
+		"import-x/no-unassigned-import": [
 			"error",
 			{
 				allow: [
@@ -93,7 +93,7 @@ module.exports = {
 
 		"n/no-unpublished-bin": "error",
 
-		// We have this enabled in addition to `import/extensions` as this one has an auto-fix.
+		// We have this enabled in addition to `import-x/extensions` as this one has an auto-fix.
 		"n/file-extension-in-import": [
 			"error",
 			"always",
