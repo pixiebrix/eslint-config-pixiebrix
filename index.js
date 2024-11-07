@@ -5,7 +5,7 @@ const config = {
 		browser: true,
 	},
 	ignorePatterns: [".idea", "dist", "**/__mocks__/**"],
-	plugins: ["filenames", "jsx-a11y", "@shopify"],
+	plugins: ["filenames", "jsx-a11y", "@shopify", "react-compiler"],
 	extends: [
 		"xo", // Full config: https://github.com/xojs/eslint-config-xo/blob/main/index.js
 		"./vendors/xo-plugins-config.js", // Vendored from xojs/xo package, it must be here as a baseline
@@ -49,6 +49,8 @@ const config = {
 				],
 			},
 		],
+
+		"react-compiler/react-compiler": "warn",
 
 		// Customize some rules
 		quotes: ["error", "double", { avoidEscape: true }], // Matches Prettier, but also replaces backticks
