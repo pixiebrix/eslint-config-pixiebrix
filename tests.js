@@ -18,6 +18,8 @@ module.exports = {
 	rules: {
 		// Enable more testing rules
 		"jest/prefer-expect-resolves": "error",
+		"jest/expect-expect": "error",
+
 		"@shopify/jest-no-snapshots": "warn",
 
 		// Loosen types a bit to facilitate testing
