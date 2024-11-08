@@ -32,8 +32,6 @@ const config = {
 		"@shopify/react-hooks-strict-return": "error",
 		"@shopify/prefer-module-scope-constants": "error",
 
-		"jest/expect-expect": "error",
-
 		"no-restricted-imports": ["error", require("./no-restricted-imports")],
 		"no-restricted-syntax": ["error", ...require("./no-restricted-syntax")],
 		"no-mixed-operators": [
