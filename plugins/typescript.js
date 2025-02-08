@@ -31,6 +31,9 @@ module.exports = {
 					}
 				),
 
+				// TODO: Remove after https://github.com/xojs/eslint-config-xo-typescript/pull/92
+				"@typescript-eslint/no-unsafe-member-access": "error",
+
 				// Reason: https://github.com/pixiebrix/pixiebrix-extension/pull/7703
 				"@typescript-eslint/restrict-template-expressions": [
 					"error",
