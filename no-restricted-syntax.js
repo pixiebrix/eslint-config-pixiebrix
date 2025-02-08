@@ -47,6 +47,11 @@ module.exports = [
 		selector:
 			"JSXOpeningElement[name.name='div'][attributes.0.name.name='onClick']",
 	},
+	{
+		message:
+		  "Prefer importing `getSelectionRange()` helper or check `selection.rangeCount` first: https://github.com/pixiebrix/pixiebrix-extension/pull/7989",
+		selector: "CallExpression[callee.property.name='getRangeAt']",
+	},
 
 	// NOTE: If you add more rules, add the tests to no-restricted-syntax.test.ts
 ];

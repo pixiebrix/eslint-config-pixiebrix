@@ -8,7 +8,7 @@
 
 // eslint-disable-next-line no-restricted-syntax
 import classnames from "classnames";
-import cx from "classnames";
+import cx from "classnames"; // Ok
 
 // eslint-disable-next-line no-restricted-syntax
 export const id = crypto.randomUUID();
@@ -24,3 +24,8 @@ export const mockPromise = jest.fn().mockResolvedValue(undefined);
 
 // eslint-disable-next-line no-restricted-syntax
 export type MyObject = Record<string, unknown>;
+
+const selection = getSelection(); // Ok
+// eslint-disable-next-line no-restricted-syntax
+export const range = selection?.getRangeAt(0).startContainer;
+export const string = selection?.toString(); // Ok
