@@ -49,7 +49,6 @@ module.exports = {
 	],
 };
 
-
 // `npm run lint:fast` will skip the (slow) import/* rules
 // Useful if you're trying to iterate fixes over other rules
 if (process.env.ESLINT_NO_IMPORTS) {
