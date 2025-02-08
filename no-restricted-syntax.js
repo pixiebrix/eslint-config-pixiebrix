@@ -52,6 +52,18 @@ module.exports = [
 		  "Prefer importing `getSelectionRange()` helper or check `selection.rangeCount` first: https://github.com/pixiebrix/pixiebrix-extension/pull/7989",
 		selector: "CallExpression[callee.property.name='getRangeAt']",
 	},
+	{
+	  message:
+		"Use the chrome.* APIs (browser.* is now only used for for messaging)",
+	  selector:
+		"MemberExpression[object.object.name='browser']:not(:has(Identifier[name=/runtime|tabs/]):has(Identifier[name=/Message/]))",
+	},
+	{
+	  message:
+		"Use the browser.* APIs for messaging (chrome.* for everything else)",
+	  selector:
+		"MemberExpression[object.object.name='chrome']:has(Identifier[name=/runtime|tabs/]):has(Identifier[name=/Message/])",
+	},
 
 	// NOTE: If you add more rules, add the tests to no-restricted-syntax.test.ts
 ];

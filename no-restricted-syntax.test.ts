@@ -6,6 +6,9 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
+declare const chrome;
+declare const browser;
+declare const jest;
 
 // eslint-disable-next-line no-restricted-syntax
 import classnames from "classnames";
@@ -30,3 +33,27 @@ const selection = getSelection(); // Ok
 // eslint-disable-next-line no-restricted-syntax
 export const range = selection?.getRangeAt(0).startContainer;
 export const string = selection?.toString(); // Ok
+
+// eslint-disable-next-line no-restricted-syntax -- necessary to define rule
+browser.runtime.getURL("options.html");
+chrome.runtime.getURL("options.html");
+
+// eslint-disable-next-line no-restricted-syntax -- necessary to define rule
+browser.tabs.query({ active: true });
+chrome.tabs.query({ active: true });
+
+// eslint-disable-next-line no-restricted-syntax -- necessary to define rule
+browser.scripting.getRegisteredContentScripts();
+chrome.scripting.getRegisteredContentScripts();
+
+// eslint-disable-next-line no-restricted-syntax -- necessary to define rule
+chrome.runtime.sendMessage("good soup");
+browser.runtime.sendMessage("good soup");
+
+// eslint-disable-next-line no-restricted-syntax -- necessary to define rule
+chrome.tabs.sendMessage(1, "u e e a i");
+browser.tabs.sendMessage(1, "u e e a i");
+
+// eslint-disable-next-line no-restricted-syntax -- necessary to define rule
+chrome.runtime.onMessage.addListener(() => undefined);
+browser.runtime.onMessage.addListener(() => undefined);
