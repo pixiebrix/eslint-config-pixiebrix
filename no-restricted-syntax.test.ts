@@ -33,24 +33,24 @@ export const string = selection?.toString(); // Ok
 
 // eslint-disable-next-line no-restricted-syntax -- necessary to define rule
 browser.runtime.getURL("options.html");
-chrome.runtime.getURL("options.html");
+chrome.runtime.getURL("options.html"); // Ok
 
 // eslint-disable-next-line no-restricted-syntax -- necessary to define rule
 browser.tabs.query({ active: true });
-chrome.tabs.query({ active: true });
+chrome.tabs.query({ active: true }); // Ok
 
 // eslint-disable-next-line no-restricted-syntax -- necessary to define rule
 browser.scripting.getRegisteredContentScripts();
-chrome.scripting.getRegisteredContentScripts();
+chrome.scripting.getRegisteredContentScripts(); // Ok
 
 // eslint-disable-next-line no-restricted-syntax -- necessary to define rule
 chrome.runtime.sendMessage("good soup");
-browser.runtime.sendMessage("good soup");
+browser.runtime.sendMessage("good soup"); // Ok
 
 // eslint-disable-next-line no-restricted-syntax -- necessary to define rule
 chrome.tabs.sendMessage(1, "u e e a i");
-browser.tabs.sendMessage(1, "u e e a i");
+browser.tabs.sendMessage(1, "u e e a i"); // Ok
 
 // eslint-disable-next-line no-restricted-syntax -- necessary to define rule
 chrome.runtime.onMessage.addListener(() => undefined);
-browser.runtime.onMessage.addListener(() => undefined);
+browser.runtime.onMessage.addListener(() => undefined); // Ok
