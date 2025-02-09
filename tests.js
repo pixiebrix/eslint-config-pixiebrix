@@ -11,6 +11,7 @@ module.exports = {
 	},
 	plugins: ["jest", "testing-library"],
 	extends: [
+		"./development.js",
 		"plugin:jest/recommended",
 		"plugin:jest/style",
 		"plugin:testing-library/react",

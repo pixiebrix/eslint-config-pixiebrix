@@ -71,6 +71,17 @@ const config = {
 	},
 	overrides: [
 		{
+			files: [
+				"**/__mocks__/**",
+				"**/testUtils/**",
+				"**/testHelpers.*",
+				"**/*.test.ts",
+				"**/*.test.tsx",
+				"**/*.stories.tsx",
+			],
+			extends: ["./tests.js"],
+		},
+		{
 			files: ["**/*.tsx", "**/use*.ts"],
 			excludedFiles: ["*.test.tsx", "*.stories.tsx"],
 			rules: {
