@@ -57,6 +57,14 @@ const config = {
 
 		eqeqeq: ["error", "always", { null: "never" }],
 
+		"new-cap": [
+			"error",
+			{
+				capIsNewExceptionPattern:
+					"(TEST_|INTERNAL_|HACK_|UNSAFE_|API_PATHS.|UI_PATHS.)",
+			},
+		],
+
 		// Override default Prettier rule: https://github.com/prettier/eslint-config-prettier/blob/5687e7de69ac132f053b4bc5474d5963aa3bf6d6/README.md#curly
 		curly: ["error", "all"],
 
