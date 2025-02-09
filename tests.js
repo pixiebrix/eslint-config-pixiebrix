@@ -32,6 +32,9 @@ module.exports = {
 		"@typescript-eslint/no-non-null-assertion": "off",
 		"react/jsx-key": "off",
 
+		// Conflicts with Redux' .concat()
+		"unicorn/prefer-spread": "off",
+
 		// Common and required usage in tests
 		"unicorn/no-useless-undefined": "off",
 
