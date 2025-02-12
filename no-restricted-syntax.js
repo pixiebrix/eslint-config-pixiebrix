@@ -4,7 +4,7 @@ module.exports = [
 	{
 		selector:
 			"TSTypeReference[typeName.name='Record'][typeParameters.params.0.type=TSStringKeyword][typeParameters.params.1.type=TSUnknownKeyword]",
-		message: "Use `UnknownObject` instead of `Record<string, unknown>`",
+		message: "Use `UnknownRecord` from 'type-fest' instead of `Record<string, unknown>`",
 	},
 	{
 		selector: "CallExpression[callee.property.name='allSettled']",
