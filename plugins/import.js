@@ -1,4 +1,9 @@
 module.exports = {
+	settings: {
+		// Ignore lodash, it's mapped to lodash-es
+		// TODO: Drop after https://github.com/pixiebrix/pixiebrix-source/pull/942
+		"import/core-modules": ["lodash"],
+	},
 	rules: {
 		// It helps us identify the chunks generated/loaded in the browser
 		"import/dynamic-import-chunkname": [
