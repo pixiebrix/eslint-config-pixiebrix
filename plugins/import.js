@@ -21,8 +21,6 @@ module.exports = {
 			},
 		],
 
-		"import/no-extraneous-dependencies": "off", // Not worth it
-
 		// Rules that duplicate TypeScript features
 		"import/default": "off",
 		"import/named": "off",
